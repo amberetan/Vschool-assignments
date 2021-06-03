@@ -1,0 +1,111 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: #CCF6F7;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#logo-pic {
+    background-image: url("https://www.bakemag.com/ext/resources/images/2020/5/KrispyKreme_NatlDoughnutWeek.jpg?t=1590504053&width=1080");
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1, h2 {
+    background-color: azure;
+    border: 5px solid #CCF6F7;
+    padding: 15px;
+}
+h2 {
+    font-size: medium;
+    font-family: cursive;
+}
+nav {
+    border: 5px solid #B0DFE0;
+    display: flex;
+}
+nav > div {
+    border: 2px solid #B0DFE0;
+    flex: 1;
+    text-align: center;
+    vertical-align: middle;
+    
+}
+.order, .flavor {
+    flex: 2;
+}
+span {
+    font-style: oblique;
+    font-weight: bold;
+}
+.content-div {
+    background-color: azure;
+    border: 5px solid #CCF6F7;
+    padding: 15px;
+}
+.june-flavors {
+    display: inline-block;
+}
+.july-flavors {
+    display: inline-block;
+}
+#str-pun {
+    width: 100px;
+}
+#lem-fill {
+    width: 100px;
+}
+#dth-choc {
+    width: 100px;
+}
+#rwb-fill {
+    width: 100px;
+}
+.reg-list {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.reg-list > li {
+    width: 100px;
+}
+#glazed {
+    width: 100px;
+    display: inline;
+}
+#maple {
+    width: 100px;
+    display: inline;
+}
+#choc-creme {
+    width: 100px;
+    display: inline;
+}
+form {
+    margin-bottom: 20px;
+}
+#sm-icons {
+    height:100px;
+}
+#orderForm {
+    display: block;
+}
+
+@media (max-width: 650px) {
+    nav {
+        border: 5px solid #B0DFE0;
+        display: block;
+    }
+    nav > div {
+        border: 2px solid #B0DFE0;
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"/>
+    <title>Business Time</title>
+</head>
+<body>
+    <div id="top-of-page">
+        <div id="logo-pic">
+            <h1>DOUGH TO DOOR</h1>
+            <h2>fresh doughnuts to your door</h2>
+        </div>
+        <nav>
+            <div><a href="locations.html">Locations</a></div>
+            <div class="flavor"><a href="index.html">Flavor of the Month</a></div>
+            <div class="order"><a href="order.html">ORDER NOW</a></div>
+            <div><a href="about.html">About</a></div>
+            <div><a href="contact.html">Contact Us</a></div>
+        </nav>
+    </div>
+    <div class="content-div">
+        <form id="order-glazed">
+            <img id="glazed" src="https://www.blessthismessplease.com/wp-content/uploads/2009/12/glazed-donuts-4.jpg">
+            <input name="amount" value="select" type=radio>
+            <label for="select">Glazed</label>
+            <input name="amount" value="1 dozen" type=radio>
+            <label for="1 dozen">1 dozen</label>
+            <input name="amount" value="1/2 dozen" type=radio>
+            <label for="1/2 dozen">1/2 dozen</label>
+        </form>
+        <form id="order-maple">
+            <img id="maple" src="https://nitrocdn.com/jXHwCpwEbBDaHSHryOikUCWOLVsNaBIR/assets/static/optimized/rev-67ab59e/wp-content/uploads/2017/11/Maple-Doughnuts-3-copy.jpg">
+            <input name="amount" value="select" type=radio>
+            <label for="select">Maple</label>
+            <input name="amount" value="1 dozen" type=radio>
+            <label for="1 dozen">1 dozen</label>
+            <input name="amount" value="1/2 dozen" type=radio>
+            <label for="1/2 dozen">1/2 dozen</label>
+        </form>        
+        <form id="order-boston">
+            <img id="choc-creme" src="https://saltandbaker.com/wp-content/uploads/2020/07/boston-cream-donuts-3.jpg">  
+            <input name="amount" value="select" type=radio>
+            <label for="select">Boston Creme</label>
+            <input name="amount" value="1 dozen" type=radio>
+            <label for="1 dozen">1 dozen</label>
+            <input name="amount" value="1/2 dozen" type=radio>
+            <label for="1/2 dozen">1/2 dozen</label>
+        </form>
+        <form id="orderForm">
+            <label>Full Name</label>
+            <input placeholder="First Last" type="text"><br>
+            <label>Street Address</label>
+            <input placeholder="123 Doughnut Ave" type="text"><br>
+            <label>State</label>
+            <input placeholder="UT" type="text"><br>
+            <label>Zip</label>
+            <input placeholder="123456" type="text"><br>
+            <label>Phone</label>
+            <input placeholder="123-456-7890" type="text"><br>
+            <button>Checkout</button>
+
+        </form>
+
+        
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
