@@ -1,38 +1,42 @@
 const readlineSync = require('readline-sync');
 
-var num1 = readlineSync.question('Please enter your first number: ');
+var num1 = parseInt(readlineSync.question('Please enter your first number: '));
 console.log('Your first number is ' + num1);
 
-var num2 = readlineSync.question('Please enter your second number: ');
+var num2 = parseInt(readlineSync.question('Please enter your second number: '));
 console.log('Your second number is ' + num2);
 
 var operation = readlineSync.question('Please enter the operation to perform: add, sub, mult, div ');
 console.log('Your operation is ' + operation);
 
 
-if (operation="add") {
+if (operation==="add") {
     function add() {
-    console.log("The result is: " + (num1+num2));
+    let result = num1 += num2;
+    console.log("The result is: " + result);
     }
-    console.log(add());
+    add();
 }    
-else if (operation="sub") {
+else if (operation==="sub") {
+    let result = num1 - num2;
     function sub(num1,num2) {
-        console.log("The result is: " + (num1-num2));
+        console.log("The result is: " + result);
     }
-    console.log(sub());
+    sub();
 }
-else if (operation="mult") {
+else if (operation==="mult") {
+    var result = num1 * num2;
     function mult(num1,num2) {
-    console.log("The result is: " + (num1*num2));
+    console.log("The result is: " + result);
     }
-    console.log(mult());
+    mult();
 }
-else if (operation="div") {
+else if (operation==="div") {
+    var result = num1/num2;
     function div(num1,num2) {
-        console.log("The result is: " + (num1/num2));
+        console.log("The result is: " + result);
     }
-    console.log(div());
+    div();
 }   
 else {
     console.log("Sorry that is an incorrect operation. Try again.");
