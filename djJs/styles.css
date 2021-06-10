@@ -1,0 +1,7 @@
+#button {
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: repeat(1, 500px);
+    background-color: white;
+    border: 2px solid black;
+}
