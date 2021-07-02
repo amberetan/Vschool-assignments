@@ -1,6 +1,7 @@
 const readlineSync = require('readline-sync');
 
 const userName = readlineSync.question("Hello, weary traveler. Welcome to the Realm of Darkness. Beyond lay treasures and nightmares beyond your imagination. Give me your name if you are foolish enough to enter: ")
+
 const user = {
     userName: userName,
     HP: 100,
@@ -83,46 +84,6 @@ const specialItems = [
     "necklace made of teeth",
     "half-eaten sandwich"
 ]
-/*const specialItems = [
-    healingPotion = {
-        addHP: 100,
-        caption: "  The inscription reads: For use on flesh wounds.  "
-    },
-    questionableHerbs = {
-        addHP: 2,
-        caption: "  The inscription reads: Use with caution, unknown effects.  "
-    },
-    vialOfBlood = {
-        addHP: -10,
-        caption: "  The inscription reads: From Jerry. Don't ask.  "
-    },
-    ichneumonArmor = {
-        addStrength: 50,
-        caption: "  It has a rough exterior, but makes for cunning camouflaging.  "
-    },
-    smallDagger = {
-        addStrength: 10,
-        caption: "  A rusty blade, probably left behind by a less-cunning, fool-hardy traveler.  "
-    },
-    masterSword = {
-        addStrength: 50,
-        caption: "  It is well-balanced, always sharp and fills you with the righteous wind of the Goddess.  "
-    },
-    knightsEmerald = {
-        aidEscape: 15,
-        caption: "  A glinting green behind the dirt, you feel luck and speed surge through your hand as you hold it.  "
-    },
-    wizardsOpal = {
-        addStrength: 50,
-        caption: "  Everchanging, it has a familiar feel to it, as if you've always held it.  "  
-    },
-    sirensRuby = {
-        aidEscape: -15,
-        caption: "  An eerie feeling pricks up your neck, like all eyes in the forest are suddenly aware of you.  "
-    }
-]*/
-
-
 
 const falseAlarm = [
     "Something flutters quickly past your ear, " ,
@@ -138,8 +99,124 @@ const falseAlarm = [
 
 const startGame = readlineSync.question("Well, " + userName + " you have proven your bravery and determination already. There is no turning back. The only escape is death, yours or the Dragon Kings. Keep walking ('W'), attack what comes before you ('A') or try to run if you dare ('R'). You may see your health status and items you have collected by pressing 'P' when you are not in combat. Will you walk in the woods?  ")
 
-if(startGame === "W" || startGame === "w"){
+//Walking in the Woods Function
+function walkInTheWoods(probability) {
+    if(probability >= 65) {
+        const randomEnemyPicker =  Math.floor(Math.random() * 9)
+        const randomEnemy = wildEnemy[randomEnemyPicker]
+        const enemyReaction = readlineSync.question("As you walk through the woods, you hear something on the path before you. Suddenly, a" + randomEnemy.description + "appears in your path.  Will you attack or run?  ")
+        if(enemyReaction == "A"){
+            console.log("You lash out, using whatever you have available, hoping it will cause some damage. ")
+            const randomEnemyDamage = Math.floor(Math.random() * 10 + 10)
+            randomEnemy.HP = randomEnemy.HP - randomEnemyDamage
+            console.log("Your enemy received " + randomEnemyDamage + " damage. ")
+            const randomUserDamage = Math.floor(Math.random() * 10 + 5)
+            user.HP = user.HP - randomUserDamage
+            console.log("When you have finished your attack, your enemy strikes back, dealing you " + randomUserDamage + " in damage.  ")
+            while(randomEnemy.HP >= 1){
+                const keepAttacking = readlineSync.question("Your enemy is still alive, will you attack again or run?  ")
+                if(keepAttacking === "A" || keepAttacking === "a"){
+                    
+                    const randomDamage = Math.floor(Math.random() * 10 + 10)
+                    randomEnemy.HP = randomEnemy.HP - randomDamage
+                    console.log("You lash out again, hoping this will be the last blow. Your enemy received " + randomDamage + " damage. ")
+                    const randomUserDamage = Math.floor(Math.random() * 10 + 5)
+                    user.HP = user.HP - randomUserDamage
+                    console.log("When you have finished your attack, your enemy strikes back, dealing you " + randomUserDamage + " in damage.  ")
+                }
+                if(keepAttacking === "R" || keepAttacking === "r") {
+                    const escapeProbability = Math.floor(Math.random() * 101)
+                    if(escapeProbability >= 50){
+                        const randomUserDamage = Math.floor(Math.random() * 10 + 5)
+                        user.HP = user.HP - randomUserDamage
+                        console.log(randomEnemy.runDialog + " Their attack causes " + randomUserDamage + ".  You were successful in your attempt to run away.")
+                        console.log('You wait a few moments, and then continue to walk in the woods.')
+                        break //need to test this break to make sure it works properly
+                    }
+//not sure if while loop is right here
+                    else {
+                        console.log(randomEnemy.runDialog + 'You were unsuccessful in your attempt to run away.')
+                        const randomUserDamage = Math.floor(Math.random() * 10 + 5)
+                        user.HP = user.HP - randomUserDamage
+                        const keepWalking = readlineSync.question(`Would you like to attack or run again? Type 'A' to attck, 'R' to run, and type 'P' to print your `)
+                        if(keepWalking === "P" || keepWalking === "p"){
+                            console.log(user)
+                        }
+                        if(keepWalking === "R" ) {
+                            console.log("You have escaped!")
+                         return playGame()
+                        }
+                        
+
+                    }
+                }
+            }
+            const randomItemPicker = Math.floor(Math.random() * specialItems.length)
+            const randomItem = specialItems[randomItemPicker]
+            user.inventory.push(randomItem)
+            console.log("Your enemy is dead. As you stand over their corpse you see something shimmering in the dark. You lean down to examine it and find a " + randomItem + " , which you place in your satchel and continue to walk in the woods.")
+            if(wildEnemy.HP < 1){
+                wildEnemy.isAlive = false
+            }
+        } 
+
+        else{
+           return runningScenarioB(enemyReaction)
+        }
+
+    } else {
+        user.HP = user.HP+5
+        const randomFalseAlarmPicker = Math.floor(Math.random() * 9)
+        const randomFalseAlarm = falseAlarm[randomFalseAlarmPicker]
+        const keepWalking = readlineSync.question(randomFalseAlarm + "and then everything is quiet.  Will you continue to walk in the woods?  ")
+        if(keepWalking === "P" || keepWalking === "p"){
+            console.log(user)
+        }
+    }
+
+}
+
+function runningScenarioB(randomEnemy) {
+     if(reaction === "R" || reaction ==="r"){
+        let running = true
+        const escapeProbability = Math.floor(Math.random() * 101)
+        while (running) {
+
+            if(escapeProbability >= 50){
+                const randomUserDamage = Math.floor(Math.random() * 10 + 5)
+                user.HP = user.HP - randomUserDamage
+                console.log(randomEnemy.runDialog + " Their attack causes " + randomUserDamage + ".  You were successful in your attempt to run away.")
+                console.log('You wait a few moments, and then continue to walk in the woods.')
+                user.HP = user.HP - Math.floor(Math.random() * 10)
+                return running = false
+            }
+            else {
+                const randomUserDamage = Math.floor(Math.random() * 10 + 5)
+                user.HP = user.HP - randomUserDamage
+                console.log(randomEnemy.runDialog + " Their attack causes " + randomUserDamage + ".  You were UNsuccessful in your attempt to run away.")
+                const keepRunning = readlineSync.question(`Would you like to try to run again? Type 'R' to run again.`)
+
+            }}
+        
+
+    }
+
+}
+
+
+
+function playGame() {
     while (user.HP>=1) {
+        console.log("You are walking in the woods...")
+        const enemyProbability = Math.floor(Math.random() * 101)
+        walkInTheWoods(enemyProbability)
+
+    }
+}
+
+if(startGame === "W" || startGame === "w"){
+    return playGame()
+/*    while (user.HP>=1) {
         console.log("You are walking in the woods...")
         const enemyProbability = Math.floor(Math.random() * 101)
         if(enemyProbability >= 65) {
@@ -171,10 +248,11 @@ if(startGame === "W" || startGame === "w"){
                             const randomUserDamage = Math.floor(Math.random() * 10 + 5)
                             user.HP = user.HP - randomUserDamage
                             console.log(randomEnemy.runDialog + " Their attack causes " + randomUserDamage + ".  You were successful in your attempt to run away.")
-                            conosle.log('You wait a few moments, and then continue to walk in the woods.')
-                            break
+                            console.log('You wait a few moments, and then continue to walk in the woods.')
+                            break //need to test this break to make sure it works properly
                         }
-                        else {
+//not sure if while loop is right here
+                        else while(escapeProbability < 50) {
                             console.log(randomEnemy.runDialog + 'You were unsuccessful in your attempt to run away.')
                             const randomUserDamage = Math.floor(Math.random() * 10 + 5)
                             user.HP = user.HP - randomUserDamage
@@ -182,6 +260,8 @@ if(startGame === "W" || startGame === "w"){
                             if(keepWalking === "P" || keepWalking === "p"){
                                 console.log(user)
                             }
+                            
+
                         }
                     }
                 }
@@ -189,6 +269,9 @@ if(startGame === "W" || startGame === "w"){
                 const randomItem = specialItems[randomItemPicker]
                 user.inventory.push(randomItem)
                 console.log("Your enemy is dead. As you stand over their corpse you see something shimmering in the dark. You lean down to examine it and find a " + randomItem + " , which you place in your satchel and continue to walk in the woods.")
+                if(wildEnemy.HP < 1){
+                    wildEnemy.isAlive = false
+                }
             } 
             else if(enemyReaction === "R" || enemyReaction ==="r"){
                 const escapeProbability = Math.floor(Math.random() * 101)
@@ -196,7 +279,7 @@ if(startGame === "W" || startGame === "w"){
                     const randomUserDamage = Math.floor(Math.random() * 10 + 5)
                     user.HP = user.HP - randomUserDamage
                     console.log(randomEnemy.runDialog + " Their attack causes " + randomUserDamage + ".  You were successful in your attempt to run away.")
-                    conosle.log('You wait a few moments, and then continue to walk in the woods.')
+                    console.log('You wait a few moments, and then continue to walk in the woods.')
                     user.HP = user.HP - Math.floor(Math.random() * 10)
                 }
                 else {
@@ -210,7 +293,7 @@ if(startGame === "W" || startGame === "w"){
                             const randomUserDamage = Math.floor(Math.random() * 10 + 5)
                             user.HP = user.HP - randomUserDamage
                             console.log(randomEnemy.runDialog + " Their attack causes " + randomUserDamage + ".  You were successful in your attempt to run away.")
-                            conosle.log('You wait a few moments, and then continue to walk in the woods.')
+                            console.log('You wait a few moments, and then continue to walk in the woods.')
                             user.HP = user.HP - Math.floor(Math.random() * 10)
                         }
                         else {
@@ -234,9 +317,34 @@ if(startGame === "W" || startGame === "w"){
 
     }
     console.log("You have tragically died. Better luck next time traveler.  ")
-
+*/
 }
 
 
 
 
+
+
+
+
+
+
+
+
+//Running Situation
+                // if (keepRunning === "R" || keepAttacking === "r"){
+                //     const escapeProbability = Math.floor(Math.random() * 101)
+                //     if(escapeProbability >= 50){
+                //         const randomUserDamage = Math.floor(Math.random() * 10 + 5)
+                //         user.HP = user.HP - randomUserDamage
+                //         console.log(randomEnemy.runDialog + " Their attack causes " + randomUserDamage + ".  You were successful in your attempt to run away.")
+                //         console.log('You wait a few moments, and then continue to walk in the woods.')
+                //         user.HP = user.HP - Math.floor(Math.random() * 10)
+                //     }
+                //     else {
+                //         const randomUserDamage = Math.floor(Math.random() * 10 + 5)
+                //         user.HP = user.HP - randomUserDamage
+                //         console.log(randomEnemy.runDialog + " Their attack causes " + randomUserDamage + ".  You were UNsuccessful in your attempt to run away.")
+                //         const keepRunning = readlineSync.question('Would you like to try to run again?  ')
+                //     }
+                // }
