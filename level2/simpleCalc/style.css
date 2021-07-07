@@ -1,0 +1,56 @@
+body{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+}
+
+div {
+    display: inline-block;
+    padding: 5px 10px 5px 10px;
+    margin: 5px;
+}
+
+h1  {
+    text-align: center;
+    grid-column: 2/4;
+    width: 200px;
+}
+
+h2  {
+    text-align: center;
+}  
+
+p {
+    padding-left: 30px;
+}
+
+input {
+    width: 70px;
+}
+
+#add {
+    background-color: darksalmon;
+}
+
+#sub {
+    background-color: lightgreen;
+}
+
+#mult {
+    background-color: plum;
+}
+
+@media (max-width:615px) {
+    body {
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+    }
+    h1  {
+        grid-column: 1/3;
+        width: 200px;
+    }
+}
+
+@media (max-width:420px) {
+    body {
+        display: inline-block;
+    }
+}

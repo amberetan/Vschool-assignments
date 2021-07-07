@@ -1,0 +1,9 @@
+body {
+    padding: 10px 10px 20px 15px;
+    background-color: rgb(184, 247, 226);
+    border: 10px groove seagreen;
+}
+
+input {
+    margin: 5px;
+}

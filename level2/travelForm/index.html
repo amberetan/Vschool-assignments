@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <form name="passengerInfo">
+        <h3>Personal Information</h3>
+            First Name: <input type="text" name="firstName"><br>
+            Last Name: <input type="text" name="lastName"><br>
+            Age: <input type="number" name="age"><br><br>
+            Gender: <br>
+            Female <input type="radio" name="gender" value="Female"><br>
+            Male <input type="radio" name="gender" value="Male"><br>
+            Prefer Not to Say <input type="radio" name="gender" value="Prefer Not to Say">
+        <h3>Travel Information</h3>
+            <select name="travelLocation">
+                <option value="Phnom Phen">Phnom Phen</option>
+                <option value="Lima">Lima</option>
+                <option value="Glasgow">Glasgow</option>
+            </select>
+        
+        <h3>Dietary Information</h3>
+            Vegetarian: <input type="checkbox" name="diet" value="Vegetarian"><br>
+            Gluten-Free: <input type="checkbox" name="diet" value="Gluten-Free"><br>
+            Dairy-Free: <input type="checkbox" name="diet" value="Dairy-free"><br><br>
+        <button>Submit</button>
+    </form>
+
+
+
+    <script src="app.js"></script>
+</body>
+</html>
