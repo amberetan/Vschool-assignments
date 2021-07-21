@@ -8,14 +8,47 @@
     <title>Document</title>
 </head>
 <body>
-    <header>Mario's Pest Control</header>
-    <h1>"I'ma gonna get the baddies!"</h1>
-    <ul>
-        <li>Goombas: 5 coins</li>
-        <li>Bob-ombs: 7 coins</li>
-        <li>Cheep-cheeps: 11 coins</li>
-    </ul>
-
+    <header>
+        <img id="headerImage" src="header.png">
+    </header>
+    <form name="invoice">
+        <ul>
+            <li>
+                <img id="goomba" src="goomba.png">
+                <h3>Goombas: 5 coins </h3>
+                <input name="goombas" type="number">
+                <img id="goomba1" src="goomba1.png">
+            </li>
+            <li>
+                <img id="bob-omb" src="Bob-omb1.png">
+                <h3>Bob-ombs: 7 coins </h3>
+                <input name="bobombs" type="number">
+                <img id="bob-omb1" src="Bob-omb.png">
+            </li>
+            <li>
+                <img id="cheepcheep" src="cheepcheep.png">
+                <h3>Cheep-cheeps: 11 coins </h3>
+                <input name="cheepCheeps" type="number">
+                <img id="cheepcheep1" src="cheepcheep1.png">
+            </li>
+            <button>Submit</button>
+            <br>
+            <li id="totals">
+                <h3>Total Baddies: </h3>
+                <div id="baddies"></div>
+                <br>
+                <h3>Total Price: </h3>
+                <div id="price"></div>
+            </li>
+        </ul>
+    </form>
+    <footer>
+        <h4>Email: mario@supermarioforever.com</h4>
+        <img class="mushroom" src="mushroom1.png">
+        <h4>Website: mariospestcontrol.com</h4>
+        <img class="mushroom" src="mushroom1.png">
+        <h4>Location: 123 Toadstool Ave, Mushroom Kingdom</h4>
+    </footer>
     <script src="app.js"></script>
 </body>
 </html>

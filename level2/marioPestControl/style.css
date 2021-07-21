@@ -1,3 +1,134 @@
+body {
+    margin: 25px;
+    text-align: center;
+    background-color: #ffee99;
+    background-image: url(wallpaper.gif);
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#headerImage {
+    width: 95%;
+    padding: 10px;
+
+}
+
 header {
-    font-family: SuperMario265;
+    border: 5px outset #049CD8;
+    margin-bottom: 15px;
+    background-color:#ddf5fe;
+}
+
+form {
+    border: 2px solid rgb(255,255,255,0.5);
+    background-color: rgb(255,255,255,0.4);
+    border-radius: 5px;
+    margin: auto;
+}
+
+h3 {
+    text-align: center;
+    display: inline-block;
+ }
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+
+input{
+    width: 45px;
+}
+
+#goomba {
+    width: 45px;
+    padding-right: 10px;
+    
+}
+
+#bob-omb {
+    width: 45px;
+    padding-right: 10px;
+
+}
+
+#cheepcheep {
+    width: 45px;
+    padding-right: 10px;
+
+}
+#goomba1 {
+    width: 45px;
+    padding-left: 10px;
+}
+
+#bob-omb1 {
+    width: 45px;
+    padding-left: 10px;
+
+}
+
+#cheepcheep1 {
+    width: 45px;
+    padding-left: 10px;
+}
+
+button {
+    height: 35px;
+    width: 75px;
+}
+
+#totals {
+    display: inline;
+}
+
+div {
+    border: 1px solid black;
+    border-radius: 3px;
+    padding-bottom: 0px;
+    margin: auto;
+    width: 85px;
+    height: 35px;
+    line-height: 35px;
+}
+
+#baddies {
+    background-color: #D9EFDA;
+
+}
+
+#price {
+    background-color: #D9EFDA;
+
+}
+
+footer {
+    margin-top: 30px;
+    padding: 15px;
+    border: 2px solid rgb(255,255,255,0.5);
+    background-color: rgb(255,255,255,0.4);
+    border-radius: 5px;
+    display: block;
+}
+
+h4 {
+    font-style: italic;
+    margin: 5px;
+}
+
+.mushroom{
+    width: 15px;
+    padding: 0px 10px;
+}
+
+@media (min-width: 768px){
+
+}
+
+@media (min-width: 1025px){
+
+    h4 {
+        display: inline;
+    }
 }

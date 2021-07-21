@@ -1,0 +1,49 @@
+#background{
+    position: relative;
+    text-align: center;
+}
+
+#pow {
+   display: inline-block;
+   width: 25%;
+   height:500px;
+}
+
+#speedRacer {
+   display: inline-block;
+   width: 65%;
+}
+
+#clickCount {
+    position: absolute;
+    top: 45%;
+    left: 15%;
+    width: 20px;
+    height: 20px;
+    font-size: 48px;
+}
+
+@media (min-width: 920px){
+    #clickCount {
+        position: absolute;
+        top: 52%;
+        left: 17%;
+    }
+}
+@media (min-width: 1110px) {
+     #speedRacer {
+        width: 712px;
+     }
+     #clickCount {
+        position: absolute;
+        top: 57%;
+        left: 18%;
+     }
+}
+@media (min-width: 1300px){
+    #clickCount {
+        position: absolute;
+        top: 60%;
+        left: 25%;
+    }
+}
