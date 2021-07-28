@@ -1,0 +1,81 @@
+body {
+    background-color: #EBF5FB;
+    background-image: url("backgroundNebula.jpeg");
+    background-size: cover;
+}
+#audio{
+    display:block;
+    margin-left: 35%;
+}
+#grid{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 300px;
+    text-align: center;
+    padding: 5%;
+
+
+}
+.boxes{
+    margin: 10px;
+    margin-top: 20px;
+    border: 3px solid lightgray;
+    border-radius: 25%;
+    transition: background-color 100ms linear 100ms, border-radius 1s linear, font-size 2s linear, color 2s linear;
+    text-align: center;
+    line-height: 300px;
+    font-family: impact, fantasy;
+    color: white;
+}
+.boxes:hover{
+    border-radius: 10px;
+    font-size: 72px;
+    color: black;
+}
+
+#box1 {
+    background-color: red;
+}
+#box1:hover {
+    background-color: #F5B7B1;
+    border-radius: 50%;
+}
+
+#box2 {
+    background-color: orange;
+}
+#box2:hover {
+    background-color: #FAD7A0;
+}
+
+#box3 {
+    background-color: yellow;
+}
+#box3:hover {
+    background-color: #FEF9E7;
+    border-radius: 50%;
+
+}
+
+#box4 {
+    background-color: green;
+}
+#box4:hover {
+    background-color: #A9DFBF;
+}
+
+#box5 {
+    background-color: blue;
+}
+#box5:hover {
+    background-color: #AED6F1;
+    border-radius: 50%;
+
+}
+
+#box6 {
+    background-color: purple;
+}
+#box6:hover {
+    background-color: #D2B4DE;
+}
