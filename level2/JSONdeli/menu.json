@@ -1,0 +1,64 @@
+{
+    "menu": {
+        "appetizers": [
+            {
+                "name":"Buffalo Wings",
+                "ingredients": ["chicken wings","buffalo sauce", "celery", "ranch"],
+                "description": "Hot and spicy wings that will satisfy your fiery hunger."
+            }, 
+            {
+                "name":"Spinach Dip",
+                "ingredients":["spinach","cheese","cream","sliced baguette"],
+                "description": "Creamy and savory dip to be enjoyed with warm sliced bread, lightly toasted."
+            }
+        ],
+        "cold sandwiches":[
+            {
+                "name":"BLT",
+                "ingredients": ["sourdough bread", "beefsteak tomatoes", "smoked bacon", "butter lettuce", "house sauce"],
+                "description": "A classic, the BLT aims to please with layers of bacon, lettuce and tomato in a sourdough sandwich."
+            }, 
+            {
+                "name": "Roast Beef",
+                "ingredients": ["sweet roll","sliced roast beef", "provolone cheese", "mayo"],
+                "description": "Stacked slices of roast beef and provolone on a large hawaiian roll."
+            }
+        ],
+        "hot sandwiches":[
+            {
+                "name":"Gilled Cheesus",
+                "ingredients": ["white bread", "american cheese", "cheddar cheese", "pickles", "grilled onions", "lettuce", "tomato", "ketchup", "mustard", "1/3lb burger"],
+                "description": "A top notch 1/3lb burger with two grilled cheese sandwiches in place of buns, comes with lettuce, tomato and pickle."
+            },
+            {
+                "name": "Southwest Turkey Club",
+                "ingredients": ["roasted turkey breast", "avocado", "bacon","tomato", "jack cheese", "cheddar cheese", "chipotle dresing", "sourdough bread"],
+                "description": "A turkey sandwich with a kick, served on sourdough with avocado, bacon, tomato, jack and cheddar cheese and a chipotle sauce."
+            }     
+        ],
+        "desserts": [
+            {
+                "name":"Lava Cake",
+                "ingredients":["flour", "butter", "eggs", "sugar", "bittersweet chocolate", "vanilla icecream"],
+                "description": "An indulgent and rich chocolate cake with a warm center of flowing dark chocolate, served with a scoop of vanilla icecream."
+            },
+            {
+                "name":"Pizookie",
+                "ingredients":["butter", "sugar", "eggs", "flour", "vailla", "baking soda", "chocolate chips", "vanilla icecream"],
+                "description": "It's a giant chocolate chip pizza-cookie, with crispy edges and a gooey center, topped with a scoop of vanilla icecream."
+            }
+        ],
+        "drinks": [
+            {
+                "name":"Strawberry Lemonade",
+                "ingredients":["strawberries", "lemonade"],
+                "description": "A refreshing strawberry lemonade, made with fresh strawberries."
+            }, 
+            {
+                "name": "Coca-Cola",
+                "ingredients":["coca-cola"],
+                "description": "You favorite fountain drink, served in a chilled glass."
+            }
+        ]
+    }
+}
