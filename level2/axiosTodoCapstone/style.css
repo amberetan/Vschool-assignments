@@ -1,0 +1,41 @@
+#header {
+    font-size: 24px;
+}
+input {
+    display: block;
+}
+.listDiv{
+    display: grid;
+    grid-template-columns: 30px auto;
+}
+
+.checkboxes {
+    margin-top: 15px;
+    grid-column: 1/2;    
+}
+h1 {
+    font-size: 16px;
+    background-color: #F3F0F2;
+    grid-column: 2/-1;
+}
+h2 {
+    font-size: 14px;
+    background-color:#DDD2D9;
+    grid-column: 2/-1;
+
+
+}
+h3 {
+    font-size: 14px;
+    background-color: #CCBBC7;
+    grid-column: 2/-1;
+
+}
+img {
+    display: block;
+    height: 150px;
+    background-color: white;
+    margin-bottom: 50px;
+    grid-column: 2/-1;
+
+}
