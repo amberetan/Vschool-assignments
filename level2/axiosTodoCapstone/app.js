@@ -1,3 +1,5 @@
+const todoForm = document.todoForm
+
 function getData(){
     axios.get("https://api.vschool.io/ambertan/todo")
     .then(response => listData(response.data))
@@ -41,3 +43,23 @@ function clearList(){
 }
 
 getData()
+
+todoForm.addEventListener("submit", function(e){
+    e.preventDefault()
+
+    const newTodo = {
+        title: todoForm.title.value,
+        description: todoForm.description.value,
+        price: todoForm.price.value,
+        imgUrl: todoForm.imgUrl.value
+    }
+
+    todoForm.title.value = ''
+    todoForm.description.value = ''
+    todoForm.price.value = ''
+    todoForm.imgUrl.value = ''
+
+    axios.post("https://api.vschool.io/ambertan/todo", newTodo)
+        .then(response => getData())
+        .catch(error => console.log(error))
+})
