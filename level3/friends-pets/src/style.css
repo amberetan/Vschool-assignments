@@ -1,0 +1,24 @@
+.friend-card {
+    border: 2px solid gray;
+    border-radius: 15%;
+    width: 400px;
+    height: 500px;
+    padding: 25px;
+    margin: 15px;
+    background-image: url("petpic.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    back
+
+}
+.title {
+    font-size: 72px;
+    text-align: center;
+}
+
+.friend-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.body {
+}
