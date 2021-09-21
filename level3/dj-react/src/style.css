@@ -1,0 +1,41 @@
+h1 {
+    text-align: center;
+    margin: auto;
+    text-shadow: 2px 2px 5px skyblue;
+}
+.square {
+    width: 200px;
+    height: 200px;
+    border: 2px solid gray;
+}
+.squareGrid {
+    margin: auto;
+    width: 400px;
+    display: grid;
+    grid-template-columns: 200px 200px;
+}
+.buttonsDiv {
+    margin: auto;
+    width: 600px;
+    height: 200px;
+    background-color: slategray;
+    box-shadow: 10px 10px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+.smallButtons {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+button {
+    height: 50px;
+    width: 50px;
+    box-shadow: 5px 5px;
+}
+.checker {
+    margin-top: 20px;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
