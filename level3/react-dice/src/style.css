@@ -22,3 +22,7 @@ h2 {
     width: 50px;
     margin: auto;
 }
+
+.toggle {
+    background-color: aquamarine;
+}

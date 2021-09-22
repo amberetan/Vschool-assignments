@@ -1,5 +1,6 @@
 import React, {Component} from "react"
-import Dicebox from "./Dicebox"
+//import Dicebox from "./Dicebox"
+import Dice from "./Dice"
 
 class App extends Component {
     constructor(){
@@ -19,14 +20,12 @@ class App extends Component {
         const randomNum3 = Math.floor(Math.random() * 6 + 1)
         const randomNum4 = Math.floor(Math.random() * 6 + 1)
         const randomNum5 = Math.floor(Math.random() * 6 + 1)
-        this.setState(prevState => {
-                return {
+        this.setState({
                     num1: randomNum1,
                     num2: randomNum2,
                     num3: randomNum3,
                     num4: randomNum4,
                     num5: randomNum5
-                }
             }
         )
     }
@@ -35,14 +34,14 @@ class App extends Component {
             <div>
                 <h1>Dice React</h1>
                 <div className="dice-box">
-                    <Dicebox num={this.state.num1}/>
-                    <Dicebox num={this.state.num2}/>
-                    <Dicebox num={this.state.num3}/>
-                    <Dicebox num={this.state.num4}/>
-                    <Dicebox num={this.state.num5}/>
+                    <Dice num={this.state.num1} />
+                    <Dice num={this.state.num2} />
+                    <Dice num={this.state.num3} />
+                    <Dice num={this.state.num4} />
+                    <Dice num={this.state.num5} />
                 </div>
                 <div className="roll-button">
-                    <button onClick={this.randomNum} >Roll!</button>
+                    <button onClick={this.randomNum}>Roll!</button>
                 </div>
             </div>
         )
