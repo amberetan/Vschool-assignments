@@ -28,24 +28,35 @@ class App extends Component {
     render(){
         return(
             <form>
-                <h1>Name Entry</h1>
-                <input
-                    id="nameInput"
-                    type="text"
-                    name="name"
-                    value={this.state.name}
-                    placeholder="First and Last Name"
-                    onChange={this.handleChange}
-                />
+                <div className="box"><h1>Name Entry</h1>
+                    <input
+                        id="nameInput"
+                        type="text"
+                        name="name"
+                        value={this.state.name}
+                        placeholder="First and Last Name"
+                        onChange={this.handleChange}
+                    />
+                    <br />
+                    <br />
+                    <button id="add" onClick={this.addToList}>Submit</button>
+                   
+                </div>
                 <br />
-                <h2>Name to be entered: {this.state.name}</h2>
                 <br />
-                <button id="add" onClick={this.addToList}>Submit</button>
+                <div className="box">
+                    <h2>Name to be entered:</h2> 
+                    <h3> {this.state.name}</h3>
+                    
+                </div>
                 <br />
-                <h2>Names already entered</h2>
-                <ol id="nameList">
+                <br />
+                <div className="box">
+                    <h2>Names already entered:</h2>
+                    <ol id="nameList">
 
-                </ol>
+                    </ol>
+                </div>
             </form>
         )
     }
