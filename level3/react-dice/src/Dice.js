@@ -1,36 +1,12 @@
 import React, {Component} from "react"
 
 class Dice extends Component {
-    constructor(){
-        super()
-        this.state = {
-            isLocked: false
-        }
-        this.clickSelect = this.clickSelect.bind(this)
-    }
-    clickSelect(){
-        if(this.state.isLocked){
-            this.setState({
-                    isLocked: false
-            })
-        } else {
-            this.setState({
-                isLocked: true
-            })
-            
-        }
 
-    }
     render(){
         const randomId = Math.random() * 10
-        // if(this.state.isLocked){
-        //     document.getElementById(randomId).classList.add("toggle")
-        // } else {
-        //     document.getElementById(randomId).classList.remove('toggle')
-        // }
         return(
-            <div id={randomId} onClick={this.clickSelect}>
-                <h2>{this.props.num}</h2>
+            <div  id={randomId} className={this.props.num===0 && "nodice" || this.props.num===1 && "dice1" || this.props.num===2 && "dice2" || this.props.num===3 && "dice3" || this.props.num===4 && "dice4" || this.props.num===5 && "dice5" || this.props.num===6 && "dice6"}>
+                <h2></h2>
             </div>
         )
     }

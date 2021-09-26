@@ -1,12 +1,21 @@
+body {
+    background-image: url("dicePics/background.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .dice-box {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     justify-items: center;
     align-items: center;
+    grid-template-rows: repeat(2, 100px);
 }
 
 h1 {
     text-align: center;
+    font-size: 72px;
+
 }
 
 h2 {
@@ -14,15 +23,63 @@ h2 {
     line-height: 100px;
     height: 100px;
     width: 100px;
-    border: 2px solid black;
-    border-radius: 15%;
+
 }
 
-.roll-button {
-    width: 50px;
+.roll-button-div {
+    width: 400px;
     margin: auto;
+}
+.roll-button {
+    font-size: 32px;
+    width: 400px
+}
+h3 {
+    text-align: center;
+    
 }
 
 .toggle {
     background-color: aquamarine;
+}
+.nodice {
+    background-image: url("dicePics/nodice.png");
+    height:100px;
+    background-size: cover;
+    border: 2px solid black;
+}
+.dice1 {
+    background-image: url("dicePics/dice1.png");
+    height: 100px;
+    background-size: cover;
+}
+.dice2 {
+    background-image: url("dicePics/dice2.png");
+    height: 100px;
+    background-size: cover;
+
+}
+.dice3 {
+    background-image: url("dicePics/dice3.png");
+    height: 100px;
+    background-size: cover;
+
+}
+.dice4 {
+    background-image: url("dicePics/dice4.png");
+    height: 100px;
+    background-size: cover;
+
+}
+.dice5 {
+    background-image: url("dicePics/dice5.png");
+    height: 100px;
+    background-size: cover;
+
+}
+.dice6 {
+    background-image: url("dicePics/dice6.png");
+    height: 100px;
+    background-size: cover;
+
 }
