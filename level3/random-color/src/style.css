@@ -1,0 +1,9 @@
+.colorComponent{
+    width: 100px;
+    height: 100px;
+}
+
+.colorGrid {
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+}

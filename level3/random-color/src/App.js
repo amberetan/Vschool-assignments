@@ -1,23 +1,39 @@
 import React from "react"
+import Color from "./Color"
 
 class App extends React.Component {
     constructor(){
         super()
         this.state = {
-            color: [0,1,2,3,4,5,6,7,8]
+            color: []
         }
+        this.handleClick = this.handleClick.bind(this)
     }
-    componentDidMount(){
-        
+    handleClick(){
+        fetch(`https://www.colr.org/json/color/random?timestamp=${new Date().getTime()}`)
+            .then(response => response.json())
+            .then(data => {
+                this.setState(prevState => {
+                    return({
+                        color: ["#" + data.colors[0].hex, ...prevState.color]
+                    })
+                })
+            })
+            console.log(this.state.color)
     }
 
 
     render(){
-        const colors = this.state.color.map(color => <Color />)
+        const colors = this.state.color.map((color,index) => <Color backgroundColor={color} key={index}/>)
         return(
-            <div>
-
-            </div>
+            <main>
+                <button onClick={this.handleClick}>Random Color:</button>
+                <div className="colorGrid">
+                    {colors}
+                </div>
+            </main>
         )
     }
 }
+
+export default App
