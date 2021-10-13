@@ -43,291 +43,56 @@ class App extends Component {
                 num1: {
                 number: randomNum1,
                 isLocked: prevState.num1.isLocked,
-                },
-                num2: {
-                    number: prevState.num2.number,
-                    isLocked: prevState.num2.isLocked,
-                },
-                num3: {
-                    number: prevState.num3.number,
-                    isLocked: prevState.num3.isLocked,
-                },
-                num4: {
-                    number: prevState.num4.number,
-                    isLocked: prevState.num4.isLocked,
-                },
-                num5: {
-                    number: prevState.num5.number,
-                    isLocked: prevState.num5.isLocked,
-                },
-                count: prevState.count
+                }
             }
             }) 
-        } else {
-            this.setState(prevState => {
-                return {
-                    num1: {
-                        number: prevState.num1.number,
-                        isLocked: prevState.num1.isLocked,
-                    },
-                    num2: {
-                        number: prevState.num2.number,
-                        isLocked: prevState.num2.isLocked,
-                    },
-                    num3: {
-                        number: prevState.num3.number,
-                        isLocked: prevState.num3.isLocked,
-                    },
-                    num4: {
-                        number: prevState.num4.number,
-                        isLocked: prevState.num4.isLocked,
-                    },
-                    num5: {
-                        number: prevState.num5.number,
-                        isLocked: prevState.num5.isLocked,
-                    },
-                    count: prevState.count
-                }
-            })
-        }
+        } 
         const randomNum2 = Math.floor(Math.random() * 6 + 1)
         if(this.state.num2.isLocked === false){
             this.setState(prevState => {
             return {
-                num1: {
-                number: prevState.num1.number,
-                isLocked: prevState.num1.isLocked,
-                },
                 num2: {
                     number: randomNum2,
                     isLocked: prevState.num2.isLocked,
-                },
-                num3: {
-                    number: prevState.num3.number,
-                    isLocked: prevState.num3.isLocked,
-                },
-                num4: {
-                    number: prevState.num4.number,
-                    isLocked: prevState.num4.isLocked,
-                },
-                num5: {
-                    number: prevState.num5.number,
-                    isLocked: prevState.num5.isLocked,
-                },
-                count: prevState.count
+                }
             }
             }) 
-        } else {
-            this.setState(prevState => {
-                return {
-                    num1: {
-                        number: prevState.num1.number,
-                        isLocked: prevState.num1.isLocked,
-                    },
-                    num2: {
-                        number: prevState.num2.number,
-                        isLocked: prevState.num2.isLocked,
-                    },
-                    num3: {
-                        number: prevState.num3.number,
-                        isLocked: prevState.num3.isLocked,
-                    },
-                    num4: {
-                        number: prevState.num4.number,
-                        isLocked: prevState.num4.isLocked,
-                    },
-                    num5: {
-                        number: prevState.num5.number,
-                        isLocked: prevState.num5.isLocked,
-                    },
-                    count: prevState.count
-                }
-            })
         }
         const randomNum3 = Math.floor(Math.random() * 6 + 1)
         if(this.state.num3.isLocked === false){
             this.setState(prevState => {
             return {
-                num1: {
-                number: prevState.num1.number,
-                isLocked: prevState.num1.isLocked,
-                },
-                num2: {
-                    number: prevState.num2.number,
-                    isLocked: prevState.num2.isLocked,
-                },
                 num3: {
                     number: randomNum3,
                     isLocked: prevState.num3.isLocked,
-                },
-                num4: {
-                    number: prevState.num4.number,
-                    isLocked: prevState.num4.isLocked,
-                },
-                num5: {
-                    number: prevState.num5.number,
-                    isLocked: prevState.num5.isLocked,
-                },
-                count: prevState.count
+                }
             }
             }) 
-        } else {
-            this.setState(prevState => {
-                return {
-                    num1: {
-                        number: prevState.num1.number,
-                        isLocked: prevState.num1.isLocked,
-                    },
-                    num2: {
-                        number: prevState.num2.number,
-                        isLocked: prevState.num2.isLocked,
-                    },
-                    num3: {
-                        number: prevState.num3.number,
-                        isLocked: prevState.num3.isLocked,
-                    },
-                    num4: {
-                        number: prevState.num4.number,
-                        isLocked: prevState.num4.isLocked,
-                    },
-                    num5: {
-                        number: prevState.num5.number,
-                        isLocked: prevState.num5.isLocked,
-                    },
-                    count: prevState.count
-                }
-            })
-        }
+        } 
         const randomNum4 = Math.floor(Math.random() * 6 + 1)
         if(this.state.num4.isLocked === false){
             this.setState(prevState => {
             return {
-                num1: {
-                number: prevState.num1.number,
-                isLocked: prevState.num1.isLocked,
-                },
-                num2: {
-                    number: prevState.num2.number,
-                    isLocked: prevState.num2.isLocked,
-                },
-                num3: {
-                    number: prevState.num3.number,
-                    isLocked: prevState.num3.isLocked,
-                },
                 num4: {
                     number: randomNum4,
                     isLocked: prevState.num4.isLocked,
-                },
-                num5: {
-                    number: prevState.num5.number,
-                    isLocked: prevState.num5.isLocked,
-                },
-                count: prevState.count
+                }
             }
             }) 
-        } else {
-            this.setState(prevState => {
-                return {
-                    num1: {
-                        number: prevState.num1.number,
-                        isLocked: prevState.num1.isLocked,
-                    },
-                    num2: {
-                        number: prevState.num2.number,
-                        isLocked: prevState.num2.isLocked,
-                    },
-                    num3: {
-                        number: prevState.num3.number,
-                        isLocked: prevState.num3.isLocked,
-                    },
-                    num4: {
-                        number: prevState.num4.number,
-                        isLocked: prevState.num4.isLocked,
-                    },
-                    num5: {
-                        number: prevState.num5.number,
-                        isLocked: prevState.num5.isLocked,
-                    },
-                    count: prevState.count
-                }
-            })
-        }
+        } 
         const randomNum5 = Math.floor(Math.random() * 6 + 1)
         if(this.state.num5.isLocked === false){
             this.setState(prevState => {
             return {
-                num1: {
-                number: prevState.num1.number,
-                isLocked: prevState.num1.isLocked,
-                },
-                num2: {
-                    number: prevState.num2.number,
-                    isLocked: prevState.num2.isLocked,
-                },
-                num3: {
-                    number: prevState.num3.number,
-                    isLocked: prevState.num3.isLocked,
-                },
-                num4: {
-                    number: prevState.num4.number,
-                    isLocked: prevState.num4.isLocked,
-                },
                 num5: {
                     number: randomNum5,
                     isLocked: prevState.num5.isLocked,
-                },
-                count: prevState.count
+                }
             }
             }) 
-        } else {
-            this.setState(prevState => {
-                return {
-                    num1: {
-                        number: prevState.num1.number,
-                        isLocked: prevState.num1.isLocked,
-                    },
-                    num2: {
-                        number: prevState.num2.number,
-                        isLocked: prevState.num2.isLocked,
-                    },
-                    num3: {
-                        number: prevState.num3.number,
-                        isLocked: prevState.num3.isLocked,
-                    },
-                    num4: {
-                        number: prevState.num4.number,
-                        isLocked: prevState.num4.isLocked,
-                    },
-                    num5: {
-                        number: prevState.num5.number,
-                        isLocked: prevState.num5.isLocked,
-                    },
-                    count: prevState.count
-                }
-            })
         }
         this.setState(prevState => {
             return {
-                num1: {
-                    number: prevState.num1.number,
-                    isLocked: prevState.num1.isLocked,
-                },
-                num2: {
-                    number: prevState.num2.number,
-                    isLocked: prevState.num2.isLocked,
-                },
-                num3: {
-                    number: prevState.num3.number,
-                    isLocked: prevState.num3.isLocked,
-                },
-                num4: {
-                    number: prevState.num4.number,
-                    isLocked: prevState.num4.isLocked,
-                },
-                num5: {
-                    number: prevState.num5.number,
-                    isLocked: prevState.num5.isLocked,
-                },
                 count: prevState.count + 1
             }
         })
@@ -364,24 +129,7 @@ class App extends Component {
                     num1: {
                     number: prevState.num1.number,
                     isLocked: false,
-                    },
-                    num2: {
-                        number: prevState.num2.number,
-                        isLocked: prevState.num2.isLocked,
-                    },
-                    num3: {
-                        number: prevState.num3.number,
-                        isLocked: prevState.num3.isLocked,
-                    },
-                    num4: {
-                        number: prevState.num4.number,
-                        isLocked: prevState.num4.isLocked,
-                    },
-                    num5: {
-                        number: prevState.num5.number,
-                        isLocked: prevState.num5.isLocked,
-                    },
-                    count: prevState.count
+                    }
                 }
             }) 
         } else {
@@ -390,24 +138,7 @@ class App extends Component {
                     num1: {
                     number: prevState.num1.number,
                     isLocked: true,
-                    },
-                    num2: {
-                        number: prevState.num2.number,
-                        isLocked: prevState.num2.isLocked,
-                    },
-                    num3: {
-                        number: prevState.num3.number,
-                        isLocked: prevState.num3.isLocked,
-                    },
-                    num4: {
-                        number: prevState.num4.number,
-                        isLocked: prevState.num4.isLocked,
-                    },
-                    num5: {
-                        number: prevState.num5.number,
-                        isLocked: prevState.num5.isLocked,
-                    },
-                    count: prevState.count
+                    }
                 }
             })
         }
@@ -416,53 +147,19 @@ class App extends Component {
         if(this.state.num2.isLocked){
             this.setState(prevState => {
                 return {
-                    num1: {
-                    number: prevState.num1.number,
-                    isLocked: prevState.num1.isLocked,
-                    },
                     num2: {
                         number: prevState.num2.number,
                         isLocked: false,
-                    },
-                    num3: {
-                        number: prevState.num3.number,
-                        isLocked: prevState.num3.isLocked,
-                    },
-                    num4: {
-                        number: prevState.num4.number,
-                        isLocked: prevState.num4.isLocked,
-                    },
-                    num5: {
-                        number: prevState.num5.number,
-                        isLocked: prevState.num5.isLocked,
-                    },
-                    count: prevState.count
+                    }
                 }
             }) 
         } else {
             this.setState(prevState => {
                 return {
-                    num1: {
-                    number: prevState.num1.number,
-                    isLocked: prevState.num1.isLocked,
-                    },
                     num2: {
                         number: prevState.num2.number,
                         isLocked: true,
-                    },
-                    num3: {
-                        number: prevState.num3.number,
-                        isLocked: prevState.num3.isLocked,
-                    },
-                    num4: {
-                        number: prevState.num4.number,
-                        isLocked: prevState.num4.isLocked,
-                    },
-                    num5: {
-                        number: prevState.num5.number,
-                        isLocked: prevState.num5.isLocked,
-                    },
-                    count: prevState.count
+                    }
                 }
             })
         }
@@ -471,53 +168,19 @@ class App extends Component {
         if(this.state.num3.isLocked){
             this.setState(prevState => {
                 return {
-                    num1: {
-                    number: prevState.num1.number,
-                    isLocked: prevState.num1.isLocked,
-                    },
-                    num2: {
-                        number: prevState.num2.number,
-                        isLocked: prevState.num2.isLocked,
-                    },
                     num3: {
                         number: prevState.num3.number,
                         isLocked: false,
-                    },
-                    num4: {
-                        number: prevState.num4.number,
-                        isLocked: prevState.num4.isLocked,
-                    },
-                    num5: {
-                        number: prevState.num5.number,
-                        isLocked: prevState.num5.isLocked,
-                    },
-                    count: prevState.count
+                    }
                 }
             }) 
         } else {
             this.setState(prevState => {
                 return {
-                    num1: {
-                    number: prevState.num1.number,
-                    isLocked: prevState.num1.isLocked,
-                    },
-                    num2: {
-                        number: prevState.num2.number,
-                        isLocked: prevState.num2.isLocked,
-                    },
                     num3: {
                         number: prevState.num3.number,
                         isLocked: true,
-                    },
-                    num4: {
-                        number: prevState.num4.number,
-                        isLocked: prevState.num4.isLocked,
-                    },
-                    num5: {
-                        number: prevState.num5.number,
-                        isLocked: prevState.num5.isLocked,
-                    },
-                    count: prevState.count
+                    }
                 }
             })
         }
@@ -526,53 +189,19 @@ class App extends Component {
         if(this.state.num4.isLocked){
             this.setState(prevState => {
                 return {
-                    num1: {
-                    number: prevState.num1.number,
-                    isLocked: prevState.num1.isLocked,
-                    },
-                    num2: {
-                        number: prevState.num2.number,
-                        isLocked: prevState.num2.isLocked,
-                    },
-                    num3: {
-                        number: prevState.num3.number,
-                        isLocked: prevState.num3.isLocked,
-                    },
                     num4: {
                         number: prevState.num4.number,
                         isLocked: false,
-                    },
-                    num5: {
-                        number: prevState.num5.number,
-                        isLocked: prevState.num5.isLocked,
-                    },
-                    count: prevState.count
+                    }
                 }
             }) 
         } else {
             this.setState(prevState => {
                 return {
-                    num1: {
-                    number: prevState.num1.number,
-                    isLocked: prevState.num1.isLocked,
-                    },
-                    num2: {
-                        number: prevState.num2.number,
-                        isLocked: prevState.num2.isLocked,
-                    },
-                    num3: {
-                        number: prevState.num3.number,
-                        isLocked: prevState.num3.isLocked,
-                    },
                     num4: {
                         number: prevState.num4.number,
                         isLocked: true,
-                    },
-                    num5: {
-                        number: prevState.num5.number,
-                        isLocked: prevState.num5.isLocked,
-                    },
-                    count: prevState.count
+                    }
                 }
             })
         }
@@ -581,53 +210,19 @@ class App extends Component {
         if(this.state.num5.isLocked){
             this.setState(prevState => {
                 return {
-                    num1: {
-                    number: prevState.num1.number,
-                    isLocked: prevState.num1.isLocked,
-                    },
-                    num2: {
-                        number: prevState.num2.number,
-                        isLocked: prevState.num2.isLocked,
-                    },
-                    num3: {
-                        number: prevState.num3.number,
-                        isLocked: prevState.num3.isLocked,
-                    },
-                    num4: {
-                        number: prevState.num4.number,
-                        isLocked: prevState.num4.isLocked,
-                    },
                     num5: {
                         number: prevState.num5.number,
                         isLocked: false,
-                    },
-                    count: prevState.count
+                    }
                 }
             }) 
         } else {
             this.setState(prevState => {
                 return {
-                    num1: {
-                    number: prevState.num1.number,
-                    isLocked: prevState.num1.isLocked,
-                    },
-                    num2: {
-                        number: prevState.num2.number,
-                        isLocked: prevState.num2.isLocked,
-                    },
-                    num3: {
-                        number: prevState.num3.number,
-                        isLocked: prevState.num3.isLocked,
-                    },
-                    num4: {
-                        number: prevState.num4.number,
-                        isLocked: prevState.num4.isLocked,
-                    },
                     num5: {
                         number: prevState.num5.number,
                         isLocked: true,
-                    },
-                    count: prevState.count
+                    }
                 }
             })
         }
