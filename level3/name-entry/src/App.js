@@ -1,10 +1,12 @@
 import React, {Component} from "react"
+import PastName from"./PastName"
 
 class App extends Component {
     constructor(){
         super()
         this.state = {
-            name: ""
+            name: "",
+            nameList: []
         }
         this.handleChange = this.handleChange.bind(this)
         this.addToList = this.addToList.bind(this)
@@ -19,13 +21,19 @@ class App extends Component {
 
     addToList(e){
         e.preventDefault()
-        let li = document.createElement("li")
-        let nameInput = document.getElementById("nameInput")
-        li.textContent = nameInput.value
-        document.getElementById("nameList").appendChild(li)
+        this.setState(prevState =>{
+            return({
+                name: "",
+                nameList: [
+                    ...prevState.nameList,
+                    {name: this.state.name}
+                ]
+            })
+        })
     }
 
     render(){
+        const nameLists = this.state.nameList.map(names => <PastName name={names.name} />)
         return(
             <form>
                 <div className="box"><h1>Name Entry</h1>
@@ -37,24 +45,21 @@ class App extends Component {
                         placeholder="First and Last Name"
                         onChange={this.handleChange}
                     />
-                    <br />
-                    <br />
+                    <br /><br />
                     <button id="add" onClick={this.addToList}>Submit</button>
                    
                 </div>
-                <br />
-                <br />
+                <br /><br />
                 <div className="box">
                     <h2>Name to be entered:</h2> 
                     <h3> {this.state.name}</h3>
                     
                 </div>
-                <br />
-                <br />
+                <br /><br />
                 <div className="box">
                     <h2>Names already entered:</h2>
                     <ol id="nameList">
-
+                        {nameLists}
                     </ol>
                 </div>
             </form>
