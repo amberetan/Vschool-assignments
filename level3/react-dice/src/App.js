@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import Dice from "./Dice"
+import dice from "./dice.wav"
 
 class App extends Component {
     constructor(props){
@@ -121,6 +122,7 @@ class App extends Component {
                 count: 0
             })
         }
+        new Audio(dice).play()
     }
     selectDice1(){
         if(this.state.num1.isLocked){
