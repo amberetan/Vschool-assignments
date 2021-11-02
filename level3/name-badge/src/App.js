@@ -35,14 +35,14 @@ class App extends Component {
                 favFood: "",
                 selfDescrip: "Tell us about yourself",
                 badges: [
+                    ...prevState.badges,
                     {firstName: this.state.firstName,
                     lastName: this.state.lastName,
                     email: this.state.email,
                     birthPlace: this.state.birthPlace,
                     phone: this.state.phone,
                     favFood: this.state.favFood,
-                    selfDescrip: this.state.selfDescrip,},
-                    ...prevState.badges
+                    selfDescrip: this.state.selfDescrip,}
                 ]
             })
         })
