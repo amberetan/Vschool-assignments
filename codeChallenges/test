@@ -1,0 +1,7 @@
+
+function callOneOfMyKids(myKidsNames){
+    const myKidsNames = ["T...","L...","B..","V..."]
+    for(let i = 0; i < myKidsNames.length; i++){
+        alert `Hey, ${myKidsNames[i]}, come here please!`
+    }
+}

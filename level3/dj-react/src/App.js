@@ -10,9 +10,6 @@ import scratch from "./audioclips/scratch.wav"
 import technohit from "./audioclips/technohit.wav"
 import drumloop from "./audioclips/drumloop.wav"
 
-
-
-
 class App extends Component {
     constructor(){
         super()
@@ -145,6 +142,5 @@ class App extends Component {
         )
     }
 }
-
 
 export default App
