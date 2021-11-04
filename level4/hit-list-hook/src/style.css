@@ -1,0 +1,27 @@
+h1{
+    text-align: center;
+}
+
+h3 {
+    position: relative;
+    bottom: 45px;
+    color: blue;
+    background-color: aquamarine;
+    width: 200px;
+    opacity: .8
+}
+
+img {
+    width: 200px
+}
+
+.hitListGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.hitItem {
+    width: 200px;
+    margin: auto;
+    text-align: center;
+}
