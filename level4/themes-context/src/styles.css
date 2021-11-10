@@ -1,0 +1,32 @@
+.body{
+    width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+.header > h1{
+    height: 150px;
+    line-height: 150px;
+}
+.navbar{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.navbar > li {
+    flex: 1;
+    border: 1px solid #a5a5a5;
+
+}
+ul{
+    list-style-type: none;
+}
+
+.dark-theme{
+    background-color: #212329;
+    color: #d1d1d1
+}
+.light-theme{
+    background-color: white;
+    color: #58595b;
+}
