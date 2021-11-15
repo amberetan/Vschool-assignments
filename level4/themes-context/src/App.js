@@ -8,10 +8,10 @@ import {ThemeContext} from "./themeContext"
 function App(){
     const {theme} = useContext(ThemeContext)
     return(
-        <div className={`body, ${theme}-theme`}>
-            <Header />
+        <div className={`body, ${theme}-theme-body`}>
+            <Header theme={theme}/>
             <Main />
-            <Footer />
+            <Footer theme={theme}/>
         </div>
     )
 }

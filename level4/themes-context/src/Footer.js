@@ -1,8 +1,8 @@
 import React from "react"
 
-function Footer(){
+function Footer(props){
     return(
-        <footer>
+        <footer className={props.theme + "-theme-footer"}>
             <div>
                 <p>social media sites</p>
             </div>

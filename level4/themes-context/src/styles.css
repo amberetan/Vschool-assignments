@@ -1,9 +1,11 @@
-.body{
-    width: 600px;
+body{
+    margin: 0
+}
+header {
+    width: 700px;
     margin: auto;
     text-align: center;
 }
-
 .header > h1{
     height: 150px;
     line-height: 150px;
@@ -11,22 +13,76 @@
 .navbar{
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    border: 1px solid #a5a5a5;
+    position: sticky;
 }
 .navbar > li {
-    flex: 1;
-    border: 1px solid #a5a5a5;
+    width: 100px;
+    border-left: 1px solid #a5a5a5;
+    border-right: 1px solid #a5a5a5;
+
+    padding-left: 0px;
 
 }
 ul{
     list-style-type: none;
+    padding-inline-start: 0px;
 }
-
-.dark-theme{
+.content{
+    display: grid;
+    grid-template-columns: 300px 30px 300px;
+    width: 630px;
+    margin: auto;
+}
+.topTitle {
+    grid-column: 1/2;
+    text-align: center;
+}
+.topContent{
+    grid-column: 1/2;
+}
+#shaveIce1{
+    grid-column: 3/-1;
+}
+#shaveIce2{
+    grid-column: 1/2;
+}
+.bottomTitle {
+    grid-column: 3/-1;
+    text-align: center;
+}
+.bottomContent{
+    grid-column: 3/-1;
+}
+img{
+    width: 280px;
+}
+footer{
+    text-align: center;
+}
+.dark-theme-header{
     background-color: #212329;
-    color: #d1d1d1
+    color: #d1d1d1;
+    text-align: center;
 }
-.light-theme{
-    background-color: white;
+.dark-theme-body{
+    background-color: dimgrey;
+}
+.dark-theme-footer{
+    background-color: #212329;
+    color: #d1d1d1;
+}
+.light-theme-header{
+    background-color: rgb(252, 203, 198);
+    color: #58595b;
+    text-align: center;
+}
+.light-theme-body{
+    background-color:mistyrose;
+    color: #58595b;
+}
+.light-theme-footer{
+    background-color: rgb(252, 203, 198);
     color: #58595b;
 }

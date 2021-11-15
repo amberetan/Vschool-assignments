@@ -1,18 +1,19 @@
 import React, {useState} from "react"
 const ThemeContext = React.createContext()
 
-function ThemeContextProvider(props){
-    const [theme, setTheme] = useState("dark")
+function ThemeContextProvider(props) {
+    const [theme, setTheme] = useState("light")
 
     function changeTheme(){
         setTheme(prevTheme => prevTheme === "light" ? "dark" : "light")
     }
 
-    return(
-        <ThemeContext.provider value={{theme: theme}}>
+    return (  
+        <ThemeContext.Provider value={{theme, changeTheme}}>
             {props.children}
-        </ThemeContext.provider>
+        </ThemeContext.Provider>
     )
 }
 
 export {ThemeContextProvider, ThemeContext}
+
