@@ -4,3 +4,10 @@ img {
 li {
     list-style-type: none;
 }
+
+.edit-thing {
+    display: none;
+}
+.save-thing{
+    display: block;
+}

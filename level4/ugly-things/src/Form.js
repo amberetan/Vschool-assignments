@@ -9,11 +9,9 @@ function Form(){
         const {name, value} = event.target
         setNewUglyThing(prevThing => ({...prevThing, [name]:value}))
     }
-    // function clearForm(){
-    //     setNewUglyThing({imgUrl: "", title: "", description: ""})
-    // }
+
     return(
-        <div>
+        <form>
             Name:
             <input 
                 name="imgUrl"
@@ -36,7 +34,7 @@ function Form(){
                 onChange={handleChange}
             />
             <button onClick={() => context.addUglyThing(newUglyThing)}>Submit</button>
-        </div>
+        </form>
     )
 }
 
