@@ -1,15 +1,17 @@
-// import axios from "axios"
 import React, {useState, useContext} from "react"
 import {UglyContext} from "./uglyContext"
+import CommentList from "./CommentList"
 
 function Uglything(props){
     const context = useContext(UglyContext)
     const [editBtn, setEditBtn] = useState(false)
-    const [editedThing, setEditedThing] = useState({imgUrl: props.imgUrl, title: props.title, description: props.description})
+    const [editedThing, setEditedThing] = useState({imgUrl: props.imgUrl, title: props.title, description: props.description, comments: props.comments})
+    
     function editUglyThing(e){
         e.preventDefault()
         setEditBtn(prevEditBtn => (prevEditBtn = !prevEditBtn))
     }
+
     function handleChange(event){
         const {name, value} = event.target
         setEditedThing(prevThing => ({...prevThing, [name]:value}))
@@ -55,6 +57,7 @@ function Uglything(props){
                 >Save</button>
                 <button onClick={() => context.deleteUglyThing(props.id)}>Delete</button>
             </form>
+            <CommentList id={props.id} commentList={props.comments}/>
         </li>
     )
 }

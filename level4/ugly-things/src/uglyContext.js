@@ -14,6 +14,8 @@ function UglyContextProvider(props){
     }, [])
     function addUglyThing(n){
         axios.post("https://api.vschool.io/ambertan/thing", n)
+        .then(response => console.log("Your ugly thing successfully posted"))
+        .catch(error => console.log(error))
     }
 
     function deleteUglyThing(id){
@@ -23,6 +25,8 @@ function UglyContextProvider(props){
     }
     function editUglyThing(id, edit){
         axios.put(`https://api.vschool.io/ambertan/thing/${id}`, edit)
+        .then(response => console.log("Your ugly thing was successfully edited"))
+        .catch(error => console.log(error))
     }
     
     function checkList(){

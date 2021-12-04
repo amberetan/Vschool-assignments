@@ -11,10 +11,12 @@ function App(){
         description={item.description} 
         key={item.title+item.description}
         id={item._id}
+        comments={item.comments}
     />)
     return(
         <>
             <button onClick={() => context.checkList()}>console log list</button>
+            <h1>Ugly Things</h1>
             <Form />
             <ul>
                 {uglyThingList}

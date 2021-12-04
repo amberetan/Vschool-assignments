@@ -3,11 +3,12 @@ import {UglyContext} from "./uglyContext"
 
 function Form(){
     const context = useContext(UglyContext)
-    const [newUglyThing, setNewUglyThing] = useState({imgUrl: "", title: "", description: ""})
+    const [newUglyThing, setNewUglyThing] = useState({imgUrl: "", title: "", description: "", comments: []})
 
     function handleChange(event){
         const {name, value} = event.target
         setNewUglyThing(prevThing => ({...prevThing, [name]:value}))
+        console.log(newUglyThing)
     }
 
     return(

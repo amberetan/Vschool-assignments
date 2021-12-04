@@ -1,8 +1,20 @@
+form {
+
+}
+
 img {
-    height: 150px
+    object-fit: contain;
+    width: 190px;
+    height: 140px;
 }
 li {
+    padding: 8px;
     list-style-type: none;
+}
+ul {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr) );
+    border: 1px solid steelblue;
 }
 
 .edit-thing {
@@ -10,4 +22,11 @@ li {
 }
 .save-thing{
     display: block;
+}
+
+.sad-on{
+    background-image: url("sad.png");
+}
+.sad-off{
+    background-image: url("sad.png");
 }
