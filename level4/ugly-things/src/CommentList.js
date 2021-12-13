@@ -11,10 +11,12 @@ function CommentList(props){
     function handleChange(e){
         setComment(e.target.value)
     }
-    function toggleSad(){
+    function toggleSad(e){
+        e.preventDefault()
         setSad(prevSad => (prevSad = !prevSad))
     }
-    function toggleSick(){
+    function toggleSick(e){
+        e.preventDefault()
         setSick(prevSick => (prevSick = !prevSick))
     }
     function handleSubmit(){
@@ -39,8 +41,9 @@ function CommentList(props){
     return(
         <>
             <form>
-                <button onClick={toggleSad} className={sad ? "sad-on" : "sad-off"}></button>
-                <button onClick={toggleSick} className={sick ? "sick-on" : "sick-off"}></button>
+                <button onClick={toggleSad} className={`emoji${sad ? " sad-on" : " sad-off"}`}></button>
+                <button onClick={toggleSick} className={`emoji${sick ? " sick-on" : " sick-off"}`}></button>
+                <br/><br/>
                 <input 
                     name="comment"
                     value={comment}

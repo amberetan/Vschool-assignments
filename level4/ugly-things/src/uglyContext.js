@@ -12,10 +12,17 @@ function UglyContextProvider(props){
                 setUglyList(data)
             })
     }, [])
-    function addUglyThing(n){
-        axios.post("https://api.vschool.io/ambertan/thing", n)
-        .then(response => console.log("Your ugly thing successfully posted"))
-        .catch(error => console.log(error))
+    function addUglyThing(newUglyThing){
+        axios.post("https://api.vschool.io/ambertan/thing", newUglyThing)
+            .then(response => console.log("Your ugly thing successfully posted", response.data))
+            .catch(error => console.log(error))
+            .finally(
+                fetch("https://api.vschool.io/ambertan/thing")
+                    .then(response => response.json())
+                    .then(data => { 
+                        setUglyList(data)
+            }))
+        
     }
 
     function deleteUglyThing(id){

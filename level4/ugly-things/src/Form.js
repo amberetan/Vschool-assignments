@@ -2,7 +2,7 @@ import React, {useContext, useState} from "react"
 import {UglyContext} from "./uglyContext"
 
 function Form(){
-    const context = useContext(UglyContext)
+    const {addUglyThing}= useContext(UglyContext)
     const [newUglyThing, setNewUglyThing] = useState({imgUrl: "", title: "", description: "", comments: []})
 
     function handleChange(event){
@@ -10,9 +10,12 @@ function Form(){
         setNewUglyThing(prevThing => ({...prevThing, [name]:value}))
         console.log(newUglyThing)
     }
-
+    function submitUglyThing(event){
+        event.preventDefault()
+        addUglyThing(newUglyThing)
+    }
     return(
-        <form>
+        <form onSubmit={submitUglyThing} className="main-form">
             Name:
             <input 
                 name="imgUrl"
@@ -34,7 +37,8 @@ function Form(){
                 placeholder="Description"
                 onChange={handleChange}
             />
-            <button onClick={() => context.addUglyThing(newUglyThing)}>Submit</button>
+            <br/><br/>
+            <button>Submit</button>
         </form>
     )
 }

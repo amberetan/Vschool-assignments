@@ -57,6 +57,7 @@ function Uglything(props){
                 >Save</button>
                 <button onClick={() => context.deleteUglyThing(props.id)}>Delete</button>
             </form>
+            <br/><br/>
             <CommentList id={props.id} commentList={props.comments}/>
         </li>
     )
