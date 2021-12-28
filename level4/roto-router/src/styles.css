@@ -1,0 +1,96 @@
+.header {
+    height: 300px;
+    width: 100%;
+    line-height: 300px;
+    background-color: #B7410E;
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    margin: 0px;
+}
+h1{
+    margin: 0px;
+    text-align: center;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10%;
+    background-color: #B7410E;
+    color: white;
+    border: 1px solid white;
+    font-size: 20px;
+}
+a{
+    color: white;
+}
+a:hover {
+    color: gray
+}
+
+footer{
+    height: 150px;
+    width: 100%;
+    border-top: 5px solid #b7410E;
+    text-align: center;
+    font-style: italic;
+}
+.socialMedia{
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    width: 330px;
+    margin: auto
+}
+.fb{
+    background-image: url("fb.png");
+    background-size: cover;
+    height: 50px;
+    width: 60px;
+    padding: 10px;
+    margin: 20px;
+}
+.ig{
+    background-image: url("ig.png");
+    background-size: cover;
+    height: 50px;
+    width: 60px;
+    padding: 10px;
+    margin: 20px;
+}
+.tw{
+    background-image: url("tw.png");
+    background-size: cover;
+    height: 50px;
+    width: 70px;
+    padding: 10px;
+    margin: 20px;
+}
+
+.wrench {
+    width: 300px;
+    position: relative;
+    top: -190px
+}
+.home{
+    margin: 40px 0px;
+}
+.pic {
+    box-shadow: 10px 10px 5px grey;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.about{
+    width: 600px;
+    margin: 40px auto;
+}
+p{
+    font-size: 18px;
+}
+.contact{
+    width: 400px;
+    margin: 40px auto;
+}
