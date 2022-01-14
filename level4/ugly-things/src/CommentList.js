@@ -50,15 +50,16 @@ function CommentList(props){
                     placeholder="Any thoughts?"
                     onChange={handleChange}
                 />
-                <button onClick={() => {
+                <button type="button" onClick={() => {
                     handleSubmit();
                     addComment(props.id, commentList)
                     }
                 }>Add Comment</button>
-                <ul>
-                    {listComments}
-                </ul>
+                
             </form>
+            <ul>
+                {listComments}
+            </ul>
         </>
     )
 }

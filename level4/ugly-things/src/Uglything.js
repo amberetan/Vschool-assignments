@@ -8,7 +8,6 @@ function Uglything(props){
     const [editedThing, setEditedThing] = useState({imgUrl: props.imgUrl, title: props.title, description: props.description, comments: props.comments})
     
     function editUglyThing(e){
-        e.preventDefault()
         setEditBtn(prevEditBtn => (prevEditBtn = !prevEditBtn))
     }
 
@@ -45,17 +44,19 @@ function Uglything(props){
                     onChange={handleChange}
                 />
                 <button 
+                    type="button"
                     className={(editBtn ? "edit-thing" : "save-thing")} 
                     onClick={editUglyThing}
                 >Edit</button>
                 <button 
+                    type="button"
                     className={(editBtn ? "save-thing" :"edit-thing")} 
                     onClick={() => {
                         context.editUglyThing(props.id, editedThing);
                         editUglyThing()}
                     }
                 >Save</button>
-                <button onClick={() => context.deleteUglyThing(props.id)}>Delete</button>
+                <button type="button" onClick={() => context.deleteUglyThing(props.id)}>Delete</button>
             </form>
             <br/><br/>
             <CommentList id={props.id} commentList={props.comments}/>
