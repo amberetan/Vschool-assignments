@@ -10,12 +10,16 @@ function App(){
         getBounties()
     }, [])
 
+    // function switchToggle(){
+    //     setToggle(prevToggle => !prevToggle)
+    // }
+
     function getBounties(){
         axios.get("/bounty")
             .then(res => {
                 setBountyList(res.data)
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err.response.data.errMsg))
     }
     function addBounty(newBounty){
         axios.post('/bounty', newBounty)
@@ -56,6 +60,8 @@ function App(){
                     addBounty={addBounty}
                     deleteBounty={deleteBounty}
                     editBounty={editBounty}
+                    // switchToggle={switchToggle}
+                    // toggle={toggle}
                 />
             )}
         </div>
