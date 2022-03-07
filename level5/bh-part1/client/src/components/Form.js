@@ -23,7 +23,7 @@ export default function Form(props){
         setInputs(prevInputs => ({...prevInputs, isLiving:!prevInputs.isLiving}))
     }
     function handleSubmit(e){
-        e.preventDefault()
+        // e.preventDefault()
         props.submit(inputs, props._id)
         setInputs(initInputs)
     }
