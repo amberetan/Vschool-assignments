@@ -1,8 +1,15 @@
 import React from "react"
+// import { UserContext } from "../context/UserProvider.js"
+import Issue from "./Issue.js"
 
-function IssueFeed(){
+function IssueFeed(props){
+    const { issues } = props
     return(
-        <h1>Hello World</h1>
+        <>
+            <h2>All Posted Issues:</h2>
+            {issues.map(issue => <Issue {...issue} key={issue._id}/>)}
+        
+        </>
     )
 }
 
