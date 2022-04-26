@@ -14,7 +14,7 @@ issueRouter.get("/", (req, res, next) => {
 })
 
 //get all issues by user
-issueRouter.get("/user", (req, res, next) => {
+issueRouter.get("/:user", (req, res, next) => {
     Issue.find({ user: req.user._id }, (err, issues) => {
         if (err) {
             res.status(500)
@@ -26,7 +26,7 @@ issueRouter.get("/user", (req, res, next) => {
 
 //get issue by id
 issueRouter.get("/:user/:issueId", (req, res, next) => {
-    Issue.findOne({ _id: req.params.issueId, user: req.user._id}, (err, issue) =>{
+    Issue.findOne({ user: req.user._id, _id: req.params.issueId }, (err, issue) =>{
         if(err){
             res.status(500)
             return next(err)
@@ -79,7 +79,85 @@ issueRouter.delete("/:issueId", (req, res, next) => {
     })
 })
 
+//upvotes and downvotes
+issueRouter.get("/upvote", (req,res,next) =>{
+    Issue.find((err, votes) =>{
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(201).send(votes)
+    })
+})
 
+issueRouter.put("/upvote/:issueId", (req,res,next) => {
+    Issue.findOneAndUpdate(
+        { _id: req.params.issueId },
+        {
+            $addToSet: {upVoteUsers: req.user._id},
+            $pull: {downVoteUsers: req.user._id},
+            // $set: {voteTotal: {$subtract: [upVoteUsers.length, downVoteUsers.length]}}
 
+        },
+        { new: true},
+        (err, upVote) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            return res.status(201).send(upVote)
+        }
+    )
+})
+
+issueRouter.put("/downvote/:issueId", (req, res, next) => {
+    Issue.findOneAndUpdate(
+        { _id: req.params.issueId },
+        {
+            $addToSet: {downVoteUsers: req.user._id},
+            $pull: {upVoteUsers: req.user._id},
+            // $set: {voteTotal: {$subtract: [upVoteUsers.length, downVoteUsers.length]}}
+        },
+        {new:true},
+        (err, downVote) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            return res.status(201).send(downVote)
+        }
+    )
+})
+// issueRouter.put("/votes", (req,res,next) => {
+//     Issue.updateMany(
+//         {},
+//         {
+//             $set: {voteTotal: {$subtract: [upVoteUsers.length, downVoteUsers.length]}}
+//         },
+//         {new:true},
+//         (err, totalVotes) => {
+//             if(err){
+//                 res.status(500)
+//                 return next(err)
+//             }
+//             return res.status(201).send(totalVotes)
+//         }
+//     )
+// })
+// issueRouter.put("/vote/:issueId", (req, res, next) => {
+//     Issue.findOneAndUpdate(
+//         { _id: req.params.issueId, user: req.user._id },
+//         { $set: {voteTotal: req.body }}, 
+//         { new: true},
+//         (err, issue) => {
+//             if (err) {
+//                 console.log("There was an error calculating votes")
+//                 res.status(500)
+//                 return next(err)
+//             }
+//             return res.send(issue)
+//         }
+//     )
+// })
 
 module.exports = issueRouter

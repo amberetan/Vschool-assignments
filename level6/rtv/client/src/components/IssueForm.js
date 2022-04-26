@@ -17,29 +17,28 @@ export default function IssueForm(props){
 
     function handleSubmit(e){
         e.preventDefault()
-        console.log(props._id)
         props.submit(inputs, props._id)
+        props.toggle()
         setInputs(initInputs)
-
     }
 
     return(
         <form onSubmit={handleSubmit}>
-            <input 
+            <input  className="issueinputs"
                 type="text"
-                placeholder="title"
+                placeholder="Title"
                 value={inputs.title}
                 name="title"
                 onChange={handleChange}
             />
-            <input 
+            <input className="issueinputs"
                 type="text"
-                placeholder="description"
+                placeholder="Description"
                 value={inputs.description}
                 name="description"
                 onChange={handleChange}
             />
-            <button>{props.btnText}</button>
+            <button className="add-btn">{props.btnText}</button>
         </form>
     )
 }

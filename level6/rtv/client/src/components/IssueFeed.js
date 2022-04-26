@@ -1,16 +1,28 @@
-import React from "react"
-// import { UserContext } from "../context/UserProvider.js"
+import React, {useContext, useEffect} from "react"
+import { UserContext } from "../context/UserProvider.js"
 import Issue from "./Issue.js"
 
-function IssueFeed(props){
-    const { issues } = props
+function IssueFeed(){
+    const { issueFeedState, getAllIssues } = useContext(UserContext)
+    const issueArray = issueFeedState.map((issue, index) => {
+        const voteTotal = issue.upVoteUsers.length-issue.downVoteUsers.length
+        return(
+            <div key={`${issue.title}_${issue._id}`}  className="issue-feed">
+                <div key={issue._id}>Ranking: {voteTotal}</div>
+                <Issue {...issue} key={index} votes={voteTotal}/>
+            </div>
+        )
+    })
+useEffect(()=>{
+    getAllIssues()
+}, [])
+
     return(
-        <>
-            <h2>All Posted Issues:</h2>
-            {issues.map(issue => <Issue {...issue} key={issue._id}/>)}
-        
-        </>
+        <div>
+            <h2 className="issue-feed-title">All Posted Issues:</h2>
+            {issueArray}
+        </div>
     )
-}
+} 
 
 export default IssueFeed

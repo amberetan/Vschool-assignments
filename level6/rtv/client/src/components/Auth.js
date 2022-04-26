@@ -7,7 +7,7 @@ const initInputs = { username: "", password: ""}
 export default function Auth(){
     const [toggle, setToggle] = useState(false)
     const [inputs, setInputs] = useState(initInputs)
-    const { signup, login } = useContext(UserContext)
+    const { signup, login, errMsg, resetAuthErr } = useContext(UserContext)
 
     function handleChange(e){
         const {name, value} = e.target
@@ -26,29 +26,39 @@ export default function Auth(){
         e.preventDefault()
         login(inputs)
       }
+      function toggleForm(){
+        setToggle(prev => !prev)
+        resetAuthErr()
+      }
     return(
         <>
             { toggle ? 
             <>
-                <AuthForm 
-                    handleChange={handleChange}
-                    handleSubmit={handleSignup}
-                    inputs={inputs}
-                    btnText="Signup"
-                
-                />
-                <p onClick={() => setToggle(prev => !prev)}>Already a member? Login.</p>
+              <div className="homepage">
+                  <AuthForm 
+                      handleChange={handleChange}
+                      handleSubmit={handleSignup}
+                      inputs={inputs}
+                      btnText="Signup"
+                      errMsg={errMsg}
+                  
+                  />
 
+              </div>
+              <p className="switch-login" onClick={toggleForm}>Already a member? Login.</p>
             </>
             :
             <>
-                <AuthForm 
-                    handleChange={handleChange}
-                    handleSubmit={handleLogin}
-                    inputs={inputs}
-                    btnText="Login"
-                />
-                <p onClick={() => setToggle(prev => !prev)}>Not a member? Signup.</p>
+              <div className="homepage">
+                  <AuthForm 
+                      handleChange={handleChange}
+                      handleSubmit={handleLogin}
+                      inputs={inputs}
+                      btnText="Login"
+                      errMsg={errMsg}
+                  />
+              </div>
+              <p className="switch-login" onClick={toggleForm}>Not a member? Signup.</p>
             </>    
             }
         </>

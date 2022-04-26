@@ -20,23 +20,36 @@ authRouter.post("/signup", (req, res, next) => {
                 res.status(500)
                 return next(err)
             }
-            const token = jwt.sign(user.toObject(), process.env.SECRET)
-            return res.status(201).send({ success: true, user: user.toObject(), token})
+            const token = jwt.sign(user.withoutPassword(), process.env.SECRET)
+            return res.status(201).send({ success: true, user: user.withoutPassword(), token})
         })
     })
 })
 
+//login
 authRouter.post("/login", (req, res, next) => {
     User.findOne({ username: req.body.username.toLowerCase() }, (err, user) => {
         if(err){
             return next(err)
         }
-        if(!user || user.password !== req.body.password) {
+        if(!user) {
             res.status(403)
             return next(new Error("Email or password are incorrect"))
         }
-        const token = jwt.sign(user.toObject(), process.env.SECRET)
-        return res.send({token: token, user: user.toObject(), success: true})
+        
+        user.checkPassword(req.body.password, (err,isMatch) => {
+            if(err){
+                res.status(403)
+                return next(new Error("Email or password are incorrect")) 
+            }
+            if(!isMatch){
+                res.status(403)
+                return next(new Error("Email or password are incorrect")) 
+            }
+            const token = jwt.sign(user.withoutPassword(), process.env.SECRET)
+            return res.send({token: token, user: user.withoutPassword(), success: true})
+        })
+        
     })
 })
 

@@ -15,7 +15,8 @@ export default function UserProvider(props){
     const initState = {
         user: JSON.parse(localStorage.getItem("user")) || {}, 
         token: localStorage.getItem("token") || "",
-        userIssues: []
+        userIssues: [],
+        errMsg: ""
     }
 
     const [userState, setUserState] = useState(initState)
@@ -24,9 +25,10 @@ export default function UserProvider(props){
 
     useEffect(() => {
         getAllIssues()
-        getUserIssues()
+        getUserIssues(userState.user._id)
     }, [])
 
+    //User Auth
     function signup(credentials){
         axios.post("/auth/signup", credentials)
             .then(res => {
@@ -37,7 +39,7 @@ export default function UserProvider(props){
                     ...prevState, user, token
                 }))
             })
-            .catch(err => console.log(err.response.data.errMsg))
+            .catch(err => handleAuthErr(err.response.data.message))
     }
 
     function login(credentials){
@@ -51,7 +53,7 @@ export default function UserProvider(props){
                     ...prevUserState, user, token
                 }))
             })
-            .catch(err => console.log(err.response.data.errMsg))
+            .catch(err => handleAuthErr(err.response.data.message))
 
     }
 
@@ -64,22 +66,39 @@ export default function UserProvider(props){
         })
     }
 
+    function handleAuthErr(errMsg){
+        setUserState(prevState => ({
+            ...prevState,
+            errMsg
+        }))
+    }
+
+    function resetAuthErr(){
+        setUserState(prevState => ({
+            ...prevState,
+            errMsg: ""
+        }))
+    }
+
+    //Issues
     function getAllIssues(){
         userAxios.get("/api/issue")
         .then(res => {
             setIssueFeed(res.data)
+            getUserIssues(userState.user._id)
         })
-        .catch(err => console.log(err.response.data.errMsg))
+        .catch(err => console.log(err.response.data.message))
+        
     }
 
-    function getUserIssues(){
-        userAxios.get(`/api/issue/user`)
+    function getUserIssues(userId){
+        userAxios.get(`/api/issue/${userId}`)
         .then(res => {
             setUserState(prevState => ({
                 ...prevState, userIssues: res.data
             }))
         })
-        .catch(err => console.log(err.response.data.errMsg))
+        .catch(err => console.log(err.response.data.message))
     }
 
     function addIssue(newIssue){
@@ -89,25 +108,46 @@ export default function UserProvider(props){
                     ...prevState, userIssues: [...prevState.userIssues, res.data]
                 }))
             })
-            .catch(err => console.log(err.response.data.errMsg))
+            .catch(err => console.log(err.response.data.message))
         }
     
-    function deleteIssue(issue, issueId){
-        userAxios.delete(`/api/issue/${issueId}`, issue)
-
+    function deleteIssue(issueId){
+        userAxios.delete(`/api/issue/${issueId}`)
+            .then(res => {
+                setIssueFeed(prevState => prevState.filter(issue => issue._id !== issueId))
+            })
     }
 
     function editIssue(updates, issueId){
         userAxios.put(`/api/issue/${issueId}`, updates)
             .then(res => {
-                setUserState(prevState => prevState.userIssues.map(issue => issue._id !== issueId ? issue : res.data))
-            })
-            .catch(err => console.log(err.response.data.errMsg))
+                setIssueFeed(prevFeed => prevFeed.map(issue => issue._id !== issueId ? issue : res.data))
+             })
+            .catch(err => console.log(err.response.data.message))
     }
 
+    
+    //Up Votes and Down Votes
+    function handleUpVotes(id){
+        userAxios.put(`/api/issue/upvote/${id}`)
+            .then(res => {
+                setIssueFeed(prevFeed => prevFeed.map(issue => issue._id !== id ? issue : res.data))
+                getUserIssues()
 
+            })
+            .catch(err => console.log(err.response.data.message))
+    }
 
+    function handleDownVotes(id){
+        userAxios.put(`/api/issue/downvote/${id}`)
+            .then(res => {
+                setIssueFeed(prevFeed => prevFeed.map(issue => issue._id !== id ? issue : res.data))
+                getUserIssues()
 
+            })
+            .catch(err => console.log(err.response.data.message))
+    }
+   
     return(
         <UserContext.Provider 
             value={{ 
@@ -115,12 +155,16 @@ export default function UserProvider(props){
                 issueFeedState, 
                 signup, 
                 login, 
-                logout, 
-                getAllIssues, 
-                getUserIssues,
+                logout,
+                resetAuthErr,
+                getAllIssues,
+                getUserIssues, 
                 addIssue,
                 deleteIssue,
-                editIssue
+                editIssue,
+                handleUpVotes,
+                handleDownVotes,
+                userAxios,
             }}
         >
             {props.children}

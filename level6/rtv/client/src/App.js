@@ -1,38 +1,41 @@
-import React from "react"
-import { Routes, Route, Link } from "react-router-dom"
+import React, { useContext } from "react"
+import { Routes, Route, Link, Navigate } from "react-router-dom"
 import Auth from "./components/Auth.js"
 import Profile from "./components/Profile.js"
-import Home from "./components/Home.js"
+import IssueFeed from "./components/IssueFeed.js"
+import {UserContext} from "./context/UserProvider.js"
  
 function App(){
+    const { logout, token } = useContext(UserContext)
     return(
         <>
-        <div>   
-            <h1>Rock The Vote</h1>
-            <nav>
+        <div className="header">   
+            <h1 className="pagetitle">Rock The Vote</h1>
+            { token && <nav>
                 <Link to="/home">Home</Link>
+                <Link to="/public">Public</Link>
                 <Link to="/profile">Profile</Link>
-                <button>Logout</button>
-            </nav>
+                <button className="logout-btn" onClick={logout}>Logout</button>
+            </nav>}
         </div>
         
             
             <Routes>
                 <Route 
-                    path="/" 
-                    element={<Auth />}
+                    path="/home" 
+                    element={token ? <Navigate replace to="/public" /> : <Auth />}
                 />
                 <Route 
                     path="/profile"
-                    element={ <Profile />}
+                    element={!token ? <Navigate replace to="/home" /> : <Profile />}
                 />
                 <Route 
-                    path="/home"
-                    element={ <Home />}
+                    path="/public"
+                    element={!token ? <Navigate replace to="/home" /> : <IssueFeed />}
                 />
             </Routes>
         <footer>
-            
+
         </footer>
         </>
     )

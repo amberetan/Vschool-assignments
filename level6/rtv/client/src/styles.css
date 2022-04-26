@@ -1,0 +1,174 @@
+.header{
+    text-align: center;
+    background: url("../public/vote.jpeg");
+    background-size: cover;
+    height: 300px;
+}
+.pagetitle{
+    font-size: 50px;
+    padding-top: 50px;
+    margin: 0px
+}
+a{
+    padding: 10px;
+    text-decoration: none;
+    color:navy;
+    font-size: 30px;
+}
+.logout-btn{
+    margin-left: 100px
+}
+.homepage{
+    border: 1px solid darkgray;
+    width: 350px;
+    height: 250px;
+    background-color: lightgray;
+    padding: 15px;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center
+}
+.authform{
+    text-align: center;
+}
+.authinputs{
+    display: block;
+    width: 300px;
+    height: 50px;
+    margin: auto;
+    margin-top: 15px
+}
+.login-btn{
+    width: 300px;
+    height: 50px;
+    margin-top: 20px
+}
+.switch-login{
+    text-decoration: underline;
+    text-align: center;
+}
+.issue-feed{
+    background-color: #bae3e6;
+    border: 1px solid #74bcc0;
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+}
+.issue-feed-title {
+    grid-column: 1/-1
+}
+.total-votes {
+    grid-column: 1/2;
+}
+.issue {
+    background-color: #d4fcff;
+    border: 1px solid #bae3e6;
+    padding: 10px;
+    margin: 5px 10px
+}
+.issue-main{
+    display: grid;
+    grid-template-columns: 11fr 1fr;
+}
+.user-dlt-btn{
+    grid-column: 2/-1;
+    grid-row: 1/2;
+    width: 30px;
+    height: 20px;
+    margin-left: 70%
+}
+.user-edit-btn{
+    grid-column: 2/-1;
+    grid-row: 2/3;
+    width: 40px;
+    height: 20px;
+    margin-left: 60%;
+    margin-top: 60%
+}
+h3{
+    text-decoration: underline;
+}
+h4{
+    grid-column: 1/2;
+    font-weight: normal;
+}
+hr{
+    border: 1px solid #74bcc0;
+}
+.comment-feed{
+    background-color: lightgray;
+    border: 1px solid gray;
+    margin: 5px 0px
+}
+.add-comment{
+    display: grid;
+    grid-template-columns: 1.5fr 5fr 1fr;
+    grid-gap: 5px;
+    margin: 5px
+}
+.comment{
+    background-color: #ededed;
+    border: 1px solid gray;
+    display: grid;
+    grid-template-columns: 11fr 1fr;
+}
+.vote-count-div{
+    display: grid;
+    grid-template-columns: repeat(4, 45px);
+    text-align: left;
+    margin-bottom: 20px
+}
+.up-btn{
+    background: url("../public/upthumb.png");
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    display: inline;
+    margin: auto;
+}
+.up-count .down-count{
+    display: inline-block;
+    border: 1px solid green;
+    height: 30px;
+    line-height: 30px;
+}
+.down-btn{
+    background: url("../public/downthumb.png");
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    margin: auto;
+}
+h2{
+    text-align: center;
+    color: navy;
+}
+p{
+    margin: 5px 10px
+}
+.issueform{
+    background-color: lightgray;
+    border: 1px solid darkgray;
+    width: 350px;
+    height: 90px;
+    background-color: lightgray;
+    padding: 15px;
+    margin: auto;
+    text-align: center
+}
+.close-btn{
+
+    margin-left: 90%
+}
+.add-btn{
+    margin-top: 10px
+}
+.issueinputs{
+    display: block;
+    width: 200px;
+    margin: auto;
+    margin-top: 5px
+
+}
+.add-issue-btn{
+    text-align: center;
+}
