@@ -23,9 +23,9 @@ const issueSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User"
     }],
-    // voteTotal: {
-    //     type: Number
-    // }
+    voteTotal: {
+        type: Number
+    }
 })
 
 // issueSchema.pre('save', function(next){

@@ -4,15 +4,22 @@ import Issue from "./Issue.js"
 
 function IssueFeed(){
     const { issueFeedState, getAllIssues } = useContext(UserContext)
-    const issueArray = issueFeedState.map((issue, index) => {
-        const voteTotal = issue.upVoteUsers.length-issue.downVoteUsers.length
+    const sortedIssues = issueFeedState.sort(function(a,b){
+        let x = a.voteTotal
+        let y = b.voteTotal
+        if (x < y) {return 1;}
+        if (x > y) {return -1;}
+        return 0;
+    })
+    const issueArray = sortedIssues.map((issue, index) => {
         return(
             <div key={`${issue.title}_${issue._id}`}  className="issue-feed">
-                <div key={issue._id}>Ranking: {voteTotal}</div>
-                <Issue {...issue} key={index} votes={voteTotal}/>
+                <div key={issue._id}>Ranking: {issue.voteTotal}</div>
+                <Issue {...issue} key={index}/>
             </div>
         )
     })
+      
 useEffect(()=>{
     getAllIssues()
 }, [])

@@ -84,7 +84,15 @@ export default function UserProvider(props){
     function getAllIssues(){
         userAxios.get("/api/issue")
         .then(res => {
-            setIssueFeed(res.data)
+            setIssueFeed(res.data.map(issue => ({
+                description: issue.description,
+                downVoteUsers: issue.downVoteUsers,
+                title: issue.title,
+                upVoteUsers: issue.upVoteUsers,
+                user: issue.user,
+                _id: issue._id,
+                voteTotal: issue.upVoteUsers.length - issue.downVoteUsers.length
+            })))
             getUserIssues(userState.user._id)
         })
         .catch(err => console.log(err.response.data.message))
@@ -95,7 +103,15 @@ export default function UserProvider(props){
         userAxios.get(`/api/issue/${userId}`)
         .then(res => {
             setUserState(prevState => ({
-                ...prevState, userIssues: res.data
+                ...prevState, userIssues: (res.data.map(issue => ({
+                    description: issue.description,
+                    downVoteUsers: issue.downVoteUsers,
+                    title: issue.title,
+                    upVoteUsers: issue.upVoteUsers,
+                    user: issue.user,
+                    _id: issue._id,
+                    voteTotal: issue.upVoteUsers.length - issue.downVoteUsers.length
+                })))
             }))
         })
         .catch(err => console.log(err.response.data.message))
@@ -131,7 +147,19 @@ export default function UserProvider(props){
     function handleUpVotes(id){
         userAxios.put(`/api/issue/upvote/${id}`)
             .then(res => {
-                setIssueFeed(prevFeed => prevFeed.map(issue => issue._id !== id ? issue : res.data))
+                setIssueFeed(prevFeed => prevFeed.map(issue => {
+                    if(issue._id !== id){
+                        return issue
+                    } else return {
+                        description: res.data.description,
+                        downVoteUsers: res.data.downVoteUsers,
+                        title: res.data.title,
+                        upVoteUsers: res.data.upVoteUsers,
+                        user: res.data.user,
+                        _id: res.data._id,
+                        voteTotal: res.data.upVoteUsers.length - res.data.downVoteUsers.length
+                    }
+                }))
                 getUserIssues()
 
             })
@@ -141,12 +169,25 @@ export default function UserProvider(props){
     function handleDownVotes(id){
         userAxios.put(`/api/issue/downvote/${id}`)
             .then(res => {
-                setIssueFeed(prevFeed => prevFeed.map(issue => issue._id !== id ? issue : res.data))
+                setIssueFeed(prevFeed => prevFeed.map(issue => {
+                    if(issue._id !== id){
+                        return issue
+                    } else return {
+                        description: res.data.description,
+                        downVoteUsers: res.data.downVoteUsers,
+                        title: res.data.title,
+                        upVoteUsers: res.data.upVoteUsers,
+                        user: res.data.user,
+                        _id: res.data._id,
+                        voteTotal: res.data.upVoteUsers.length - res.data.downVoteUsers.length
+                    }
+                }))
                 getUserIssues()
 
             })
             .catch(err => console.log(err.response.data.message))
     }
+
    
     return(
         <UserContext.Provider 

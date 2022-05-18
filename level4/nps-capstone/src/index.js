@@ -10,6 +10,6 @@ ReactDOM.render(
         <BrowserRouter>
             <App />
         </BrowserRouter>
-    </NpsContextProvider>, 
+    </NpsContextProvider>,
     document.getElementById("root")
 )

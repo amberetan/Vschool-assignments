@@ -12,7 +12,7 @@ function App(){
         <div className="header">   
             <h1 className="pagetitle">Rock The Vote</h1>
             { token && <nav>
-                <Link to="/home">Home</Link>
+                <Link to="/">Home</Link>
                 <Link to="/public">Public</Link>
                 <Link to="/profile">Profile</Link>
                 <button className="logout-btn" onClick={logout}>Logout</button>
@@ -22,16 +22,16 @@ function App(){
             
             <Routes>
                 <Route 
-                    path="/home" 
+                    path="/" 
                     element={token ? <Navigate replace to="/public" /> : <Auth />}
                 />
                 <Route 
                     path="/profile"
-                    element={!token ? <Navigate replace to="/home" /> : <Profile />}
+                    element={!token ? <Navigate replace to="/" /> : <Profile />}
                 />
                 <Route 
                     path="/public"
-                    element={!token ? <Navigate replace to="/home" /> : <IssueFeed />}
+                    element={!token ? <Navigate replace to="/" /> : <IssueFeed />}
                 />
             </Routes>
         <footer>
