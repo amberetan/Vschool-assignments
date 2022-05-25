@@ -67,3 +67,5 @@ listRouter.delete("/:listId", (req, res, next) =>{
         return res.send(list)
     })
 })
+
+module.exports = listRouter

@@ -66,3 +66,5 @@ tripRouter.delete("/:tripId", (req, res, next) =>{
         return res.send(trip)
     })
 })
+
+module.exports = tripRouter

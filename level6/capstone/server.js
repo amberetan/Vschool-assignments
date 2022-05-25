@@ -3,7 +3,7 @@ const app = express()
 require("dotenv").config()
 const mongoose = require("mongoose")
 const morgan = require("morgan")
-const expressJwt = require("express-jwt")
+const { expressjwt: jwt } = require("express-jwt")
 const PORT = process.env.PORT || 4500
 
 //middleware
@@ -21,8 +21,10 @@ mongoose.connect(
 )
 
 //routes
-app.use("/api", expressJwt({secret: process.env.SECRET, algorithms: ['HS256']}))
+app.use("/api", jwt({secret: process.env.SECRET, algorithms: ['HS256']}))
 app.use("/auth", require('./routes/auth'))
+app.use("/api/list", require('./routes/listRouter'))
+app.use("/api/trip", require('./routes/tripRouter'))
 
 //error handling
 app.use((err, req, res, next) => {
