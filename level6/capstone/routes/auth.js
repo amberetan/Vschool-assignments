@@ -2,7 +2,6 @@ const express = require("express")
 const User = require("../models/user")
 const authRouter = express.Router()
 const jwt = require("jsonwebtoken")
-const user = require("../models/user")
 
 //signup
 authRouter.post("/signup", (req, res, next) => {
@@ -29,15 +28,15 @@ authRouter.post("/signup", (req, res, next) => {
 
 //login
 authRouter.post("/login", (req, res, next) =>{
-    User.findOne({ username: req.body.username.toLowerCase() }, (err, existingUser) => {
+    User.findOne({ username: req.body.username.toLowerCase() }, (err, user) => {
         if(err){
             return next(err)
         }
-        if(!existingUser){
+        if(!user){
             res.status(403)
             return next(new Error("Incorrect email or password"))
         }
-        existingUser.checkPassword(req.body.password, (err, isMatch) => {
+        user.checkPassword(req.body.password, (err, isMatch) => {
             if(err){
                 res.status(403)
                 return next(new Error("Incorrect email or password"))

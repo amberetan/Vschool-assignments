@@ -6,22 +6,27 @@ import MyTrip from "./pages/MyTrip"
 import {NpsContext} from "./context/npsContext"
 import Park from "./pages/Park"
 import State from "./pages/State"
+import { UserContext } from "./context/UserContext"
 
 
 function App(){
     const {mode} = useContext(NpsContext)
+    const {logout, token} = useContext(UserContext)
     return (
         <>
             <header className={`header-${mode}`}>
                 National Parks
             </header>
-            <nav className={`nav-${mode}`}>
+            {token && <nav className={`nav-${mode}`}>
                 <Link className="link" to="/"><div className="nav-link">Home</div></Link>
                 <Link className="link" to="/parksbystate"><div className="nav-link">Parks</div></Link>
                 <Link className="link" to="/mytrip">My Trip</Link>
-            </nav>
+                <button className="logoutBtn" onClick={logout}>Logout</button>
+            </nav>}
             <main className={`main-${mode}`}>
-                
+                {token && <div className="favSideBar">
+                    <h4>Favorites:</h4>
+                </div>}
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/parksbystate" element={<ParksByState />} />

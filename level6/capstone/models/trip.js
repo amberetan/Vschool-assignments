@@ -6,12 +6,19 @@ const tripSchema = new Schema({
     title: {
         type: String
     },
-    location: {
+    location: [{
         type: String
-    },
+    }],
+    lodging: [{
+        type: String
+    }],
     date: {
         type: Date
     },
+    activities: [{
+        type: String
+    }],
+    complete: Boolean,
     good: {
         type: String
     },

@@ -17,7 +17,6 @@ function Home(){
             </ul>
             <div className="explore">
                 <Auth />
-                <Link to="/parksbystate"><button className="exploreBtn">Explore!</button></Link>
             </div>
         </div>
     )
