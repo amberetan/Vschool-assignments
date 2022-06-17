@@ -69,6 +69,22 @@ function UserProvider(props){
             errMsg: ""
         }))
     }
+
+    //Trip database
+    function getTrip(id){
+        userAxios.get(`/api/trip/${id}`)
+            .then(res => {
+                console.log(res.data)
+            })
+            .catch(err => console.log(err))
+    }
+    function addTrip(newTrip){
+        userAxios.post(`/api/trip/`, newTrip)
+            .then(res => {
+                console.log(res.data)
+            })
+            .catch(err => console.log(err))
+    }
     return(
         <UserContext.Provider 
             value={{ 
@@ -78,6 +94,8 @@ function UserProvider(props){
                 logout,
                 resetAuthErr,
                 userAxios,
+                getTrip,
+                addTrip
             }}
         >
             {props.children}

@@ -3,7 +3,7 @@ const tripRouter = express.Router()
 const Trip = require("../models/trip")
 
 //get all trips by user
-tripRouter.get("/:user", (req, res, next) => {
+tripRouter.get("/user", (req, res, next) => {
     Trip.find({ user: req.user._id }, (err, trips) => {
         if(err) {
             res.status(500)
@@ -30,7 +30,8 @@ tripRouter.get("/:user/:tripId", (req, res, next) => {
 //post a new trip
 tripRouter.post("/", (req, res, next) => {
     const trip = new Trip(req.body)
-    trip.user = req.user._idtrip.save((err, newTrip =>{
+    trip.user = req.user._id
+    trip.save((err, newTrip =>{
         if(err){
             res.status(500)
             return next(err)
