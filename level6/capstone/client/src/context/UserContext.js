@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, {useState } from "react"
 import axios from "axios"
 
 const UserContext = React.createContext()
@@ -15,7 +15,8 @@ function UserProvider(props){
     const initState = {
         user:JSON.parse(localStorage.getItem("user")) || {},
         token: localStorage.getItem("token") || "",
-        errMsg: ""
+        errMsg: "",
+        trips: []
     }
 
     const [userState, setUserState] = useState(initState)
@@ -71,6 +72,17 @@ function UserProvider(props){
     }
 
     //Trip database
+    function getTrips(user){
+        userAxios.get(`/api/trip/${user}`)
+            .then(res => {
+                setUserState(prevState => ({
+                    ...prevState,
+                    trips: res.data
+                }))
+            })
+            .catch(err => console.log(err))
+    }
+
     function getTrip(id){
         userAxios.get(`/api/trip/${id}`)
             .then(res => {
@@ -80,6 +92,13 @@ function UserProvider(props){
     }
     function addTrip(newTrip){
         userAxios.post(`/api/trip/`, newTrip)
+            .then(res => {
+                console.log(res.data)
+            })
+            .catch(err => console.log(err))
+    }
+    function editTrip(changes, id){
+        userAxios.put(`/api/trip/${id}`, changes)
             .then(res => {
                 console.log(res.data)
             })
@@ -95,7 +114,9 @@ function UserProvider(props){
                 resetAuthErr,
                 userAxios,
                 getTrip,
-                addTrip
+                addTrip,
+                getTrips,
+                editTrip
             }}
         >
             {props.children}

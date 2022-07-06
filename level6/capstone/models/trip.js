@@ -13,12 +13,14 @@ const tripSchema = new Schema({
         type: String
     }],
     date: {
-        type: Date
+        type: String
     },
     activities: [{
         type: String
     }],
-    complete: Boolean,
+    complete: {
+        type: Boolean
+    },
     good: {
         type: String
     },
