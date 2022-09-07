@@ -4,17 +4,17 @@ import PastTrip from "./PastTrip"
 import TripForm from "./TripForm"
 
 function MyTrip(){
-    const {trips, getTrips, addTrip, userState} = useContext(UserContext)
+    const {trips, getTrips, addTrip, user} = useContext(UserContext)
 
     useEffect(() => {
-        getTrips()
-    })
+        getTrips(user._id)
+    }, [])
 
     
     return(
         <div className="tripsPage">
             <div>
-                <h1>Trips</h1>
+                <h1>Plan a Trip</h1>
                 <TripForm 
                     btnText="Add Trip"
                     submit={addTrip}
@@ -22,10 +22,11 @@ function MyTrip(){
             </div>
             <div>
                 <h1>Past Trips</h1>
-                {trips.map(trip => 
+                {trips.map((trip, index) => 
                     <PastTrip 
                         {...trip}
                         key={trip._id}
+                        index={index}
                     />
                 )}
             </div>

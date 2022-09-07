@@ -38,6 +38,9 @@ nav {
     background-color: #02a3a3;
     border-radius: 8px;
     padding: 0px 5px;
+
+}
+.logout{
     margin-left: auto
 }
 main {
@@ -56,12 +59,13 @@ main {
     background-color: rgba(255,255,255,0.6);
     padding: 10px;
     position: fixed;
+    z-index: 1;
 }
 .link{
     color: white;
     text-decoration: none;
 }
-.link:hover {
+.link:hover, .logoutBtn:hover{
     color: gray;
 }
 .stateMap {
@@ -137,6 +141,7 @@ li {
 }
 h1 {
     text-align: center;
+    margin: 15px
 }
 a{
     color: black;
@@ -170,6 +175,8 @@ a:hover{
 .park-page h1{
     color: black;
     text-shadow: 2px 2px white;
+    border: 2px solid white;
+    background-color: rgba(255,255,255,0.6);
 }
 .park-page-grid{
     display: grid;
@@ -288,15 +295,41 @@ a:hover{
 .tripsPage{
     grid-column: 2/-1;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:1fr;
+    background-image: url(./img/tripBG.jpeg);
 }
 
 .tripForm{
     display: grid;
-    width: 500px;
-    
+    grid-template-columns: 1fr 2fr 1fr 2fr;
+    grid-gap: 10px;
+    text-align: right;
+    padding: 10px;
+    background-color: rgba(144,188,143, 0.6);
+    border: 1px solid rgba(144,188,143, 0.6);
+}
+.activities{
+    grid-column: 2/-1;
+}
+.packingList{
+    grid-column: 2/-1;
 }
 
 .favBtn{
     margin: 0px 10px
+}
+.trip-form-btn{
+    grid-column: 2/-1;
+}
+.completeChkbx{
+    justify-self: start;
+    width: 30px
+}
+.tripCard1{
+    background-color: rgba(144,188,143, 0.5);
+    margin: 5px;
+}
+.tripCard2{
+    border: 1px solid rgb(144,188,143);
+    margin: 5px;
 }

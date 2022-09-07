@@ -3,7 +3,7 @@ import { UserContext }from "../context/UserContext"
 
 function TripForm(props) {
     const {trips, getTrips, addTrip, userState} = useContext(UserContext)
-
+    console.log(props)
     const initTrip = {
         title: props.title || "",
         date: props.date || "",
@@ -40,7 +40,7 @@ function TripForm(props) {
                         type="text"
                         onChange={handleChange}
                     />
-                    <br/>
+                    
                     Dates:
                     <input 
                         placeholder="Summer 2022"
@@ -50,7 +50,7 @@ function TripForm(props) {
                         onChange={handleChange}
  
                     />
-                    <br/>
+                    
                     Park(s) to Visit:
                     <input 
                         placeholder="Park Names" 
@@ -60,7 +60,7 @@ function TripForm(props) {
                         onChange={handleChange}
 
                     />
-                    <br/>
+                    
                     Lodging: 
                     <input 
                         placeholder="camping, motel, airbnb..." 
@@ -70,7 +70,7 @@ function TripForm(props) {
                         onChange={handleChange}
 
                     />
-                    <br/>
+                    
                     Activities: 
                     <textarea 
                         placeholder="Visitor's center, hikes, fishing..." 
@@ -78,24 +78,35 @@ function TripForm(props) {
                         value={tripInfo.activities}
                         type="text"
                         onChange={handleChange}
-
+                        className="activities"
                     />
-                    <br/>
+                    Packing List:
+                    <textarea
+                        placeholder="Hiking boots, tent, bug-spray..." 
+                        name="packingList"
+                        // value={tripInfo.packing}
+                        type="text"
+                        // onChange={handleChange}
+                        className="packingList"
+                    />
+
                     Trip Completed?
                     <input
                         type="checkbox"
                         name="complete"
                         value={tripInfo.complete}
                         onChange={handleChange}
+                        className="completeChkbx"
 
                     />
+                  
                     Good: 
                     <textarea
                         placeholder="What was great about your trip?"
                         name="good"
                         value={tripInfo.good}
                         onChange={handleChange}
-
+                        className="good"
                     />
                     Bad: 
                     <textarea
@@ -113,9 +124,8 @@ function TripForm(props) {
                         onChange={handleChange}
 
                     />
-                    Packing List:
-                    <input />
-                    <button type="submit">{props.btnText}</button>
+                    
+                    <button className="trip-form-btn" type="submit">{props.btnText}</button>
                 </form>
         </>
     )

@@ -18,17 +18,17 @@ function App(){
                 National Parks
             </header>
             {token && <nav className={`nav-${mode}`}>
-                <Link className="link" to="/"><div className="nav-link">Home</div></Link>
+                {/* <Link className="link" to="/"><div className="nav-link">Home</div></Link> */}
                 <Link className="link" to="/parksbystate"><div className="nav-link">Parks</div></Link>
                 <Link className="link" to="/mytrip">My Trip</Link>
-                <button className="logoutBtn" onClick={logout}>Logout</button>
+                <Link className="logout" to="/"><button className="logoutBtn" onClick={logout}>Logout</button></Link>
             </nav>}
             <main className={`main-${mode}`}>
                 {token && <div className="favSideBar">
                     <h4>Favorites:</h4>
                 </div>}
                 <Routes>
-                    <Route path="/" element={ token ? <Navigate to="/mytrip" /> : <Home />} />
+                    <Route path="/" element={ token ? <Navigate to="/parksbystate" /> : <Home />} />
                     <Route path="/parksbystate" element={<ParksByState />} />
                     <Route path="/mytrip" element={<MyTrip />} />
                     <Route path="/park/:stateId" element={<State />} />

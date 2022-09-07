@@ -10,12 +10,12 @@ favRouter.put("add/:userId", (req,res,next) => {
             $addToSet: {favorites: req.body},
         },
         { new: true},
-        (err, upVote) => {
+        (err, addFav) => {
             if(err){
                 res.status(500)
                 return next(err)
             }
-            return res.status(201).send(upVote)
+            return res.status(201).send(addFav)
         }
 
     )
@@ -24,15 +24,15 @@ favRouter.put("remove/:userId", (req,res,next) => {
     User.findOneAndUpdate(
         { _id: req.params.userId },
         {
-            $pull: {downVoteUsers: req.body},
+            $pull: {favorites: req.body},
         },
         { new: true},
-        (err, upVote) => {
+        (err, removeFav) => {
             if(err){
                 res.status(500)
                 return next(err)
             }
-            return res.status(201).send(upVote)
+            return res.status(201).send(removeFav)
         }
 
     )

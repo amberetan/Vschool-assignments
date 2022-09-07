@@ -12,24 +12,27 @@ export default function PastTrip(props){
         good,
         bad,
         rememberNextTime,
-        _id
+        _id,
+        index
     } = props
-
-    const {editTrip } = useContext(UserContext)
+    console.log(props)
+    const {editTrip, deleteTrip } = useContext(UserContext)
 
     const [toggle, setToggle] = useState(true)
 
     function handleEdit(){
         setToggle(prev => !prev)
     }
-    function handleDelete(){
-        
-    }
+
+
+    // function handleDelete(){
+    //     deleteTrip(_id) className={user.trips.indexOf(_id)%2===0 ? "tripCard1" : "tripCard2"}
+    // }
     return(
         <div>
             {toggle ? 
-            <>
-                <h1>{title} - {date}</h1>
+            <div className={index%2===0 ? "tripCard1" : "tripCard2"}>
+                <h3>{title} - {date}</h3>
                 <p>Location(s): {location}</p>
                 <p>Lodging: {lodging}</p>
                 <p>Activities: {activities}</p>
@@ -37,8 +40,8 @@ export default function PastTrip(props){
                 <p>The Bad: {bad}</p>
                 <p>Remember for Next Time: {rememberNextTime}</p>
                 <button onClick={handleEdit}>Edit Trip</button>
-                <button onClick={handleDelete}>Delete</button>
-            </>
+                <button onClick={() => deleteTrip(_id)}>Delete</button>
+            </div>
             :
             <>
                 <TripForm 

@@ -95,13 +95,31 @@ function UserProvider(props){
     function addTrip(newTrip){
         userAxios.post(`/api/trip/`, newTrip)
             .then(res => {
-                console.log(res.data)
+                setUserState(prevState => ({
+                    ...prevState,
+                    trips: [...prevState.trips, res.data]
+                }))
             })
             .catch(err => console.log(err))
     }
     function editTrip(changes, id){
         userAxios.put(`/api/trip/${id}`, changes)
             .then(res => {
+                setUserState(prevState => ({
+                    ...prevState,
+                    trips: prevState.trips.map(trip => trip._id !== id ? trip : res.data)
+                }))
+            })
+            .catch(err => console.log(err))
+    }
+
+    function deleteTrip(id){
+        userAxios.delete(`/api/trip/${id}`)
+            .then(res => {
+                setUserState(prevState => ({
+                    ...prevState,
+                    trips: prevState.trips.filter(trip => trip._id !== id)
+                }))
                 console.log(res.data)
             })
             .catch(err => console.log(err))
@@ -111,10 +129,11 @@ function UserProvider(props){
     function addFavorite(userId, parkName){
         userAxios.put(`/api/favorites/add/${userId}`, parkName)
             .then(res => {
-                setUserState(prevState => ({
-                    ...prevState,
-                    favorites: res.data
-                }))
+                console.log(res.data)
+                // setUserState(prevState => ({
+                //     ...prevState,
+                //     favorites: res.data
+                // }))
             })
     }
     function removeFavorite(userId, parkName){
@@ -140,6 +159,7 @@ function UserProvider(props){
                 addTrip,
                 getTrips,
                 editTrip,
+                deleteTrip,
                 addFavorite,
                 removeFavorite
             }}
