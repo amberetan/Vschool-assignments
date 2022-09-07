@@ -25,6 +25,7 @@ app.use("/api", jwt({secret: process.env.SECRET, algorithms: ['HS256']}))
 app.use("/auth", require('./routes/auth'))
 app.use("/api/list", require('./routes/listRouter'))
 app.use("/api/trip", require('./routes/tripRouter'))
+app.use("/api/favorites", require('./routes/favRouter'))
 
 //error handling
 app.use((err, req, res, next) => {

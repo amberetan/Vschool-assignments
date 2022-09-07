@@ -11,7 +11,8 @@ header {
     text-align: center;
     position: fixed;
     top: 0;
-    width: 100%
+    width: 100%;
+    z-index: 1;
 
 }
 nav {
@@ -24,6 +25,7 @@ nav {
     position: fixed;
     top: 100px;
     width: 92%;
+    z-index: 1;
 
 }
 .nav-link{
@@ -43,11 +45,17 @@ main {
     display: grid;
     grid-template-columns: 100px 1fr;
 }
+.home {
+    width: 400px;
+    margin-left: 20%;
+    grid-column: 2/3
+}
 .favSideBar{
     width: 80px;
     height: 100%;
     background-color: rgba(255,255,255,0.6);
-    padding: 10px
+    padding: 10px;
+    position: fixed;
 }
 .link{
     color: white;
@@ -138,12 +146,26 @@ a:hover{
     color: gray
 }
 .state-page{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    width: 600px;
+    margin-left: 150px
+}
+.state-page-title{
+    grid-column: 2/-1;
 }
 .stateImg {
     align-items: center;
     margin: auto
+}
+.parks-by-state{
+    grid-column: 2/-1;
+}
+.park-page{
+    grid-column: 2/-1;
+    display: flex;
+    z-index:0;
+    flex-direction: column;
 }
 .park-page h1{
     color: black;
@@ -176,11 +198,7 @@ a:hover{
         margin: auto
     }
 }
-.park-page{
-    display: flex;
-    z-index:0;
-    flex-direction: column;
-}
+
 
 .backgroundImages, .backgroundImages:after { 
     position: fixed;
@@ -268,6 +286,7 @@ a:hover{
 }
 
 .tripsPage{
+    grid-column: 2/-1;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -276,4 +295,8 @@ a:hover{
     display: grid;
     width: 500px;
     
+}
+
+.favBtn{
+    margin: 0px 10px
 }

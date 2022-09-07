@@ -25,6 +25,7 @@ function MyTrip(){
                 {trips.map(trip => 
                     <PastTrip 
                         {...trip}
+                        key={trip._id}
                     />
                 )}
             </div>

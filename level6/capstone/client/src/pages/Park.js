@@ -1,12 +1,16 @@
-import React, {useContext} from "react"
+import React, {useContext, useState} from "react"
 import {useParams} from "react-router-dom"
 import {NpsContext} from "../context/npsContext"
+import { UserContext } from "../context/UserContext"
 
 function Park(){
     const {allParks} = useContext(NpsContext)
+    const {addFavorite, removeFavorite, user} = useContext(UserContext)
     const {parkId} = useParams()
+    const [toggle, setToggle] = useState(false)
     const thisPark = allParks.find(park => (park.parkCode === parkId))
-    console.log(thisPark)
+    // console.log(thisPark)
+    console.log(user)
     const activityList = thisPark.activities.map(activity => 
         <li key={activity.id}>
             <p>{activity.name}</p>
@@ -41,11 +45,25 @@ function Park(){
         <li key={image.caption}>
             <span><img alt={image.altText} src={image.url}></img></span>
         </li>)
-    console.log(thisPark)
+    function handleClickAdd(e){
+        e.preventDefault()
+        setToggle(prev => !prev)
+        addFavorite(user._id,thisPark.fullName)
+    }
+    function handleClickRemove(e){
+        e.preventDefault()
+        setToggle(prev => !prev)
+        removeFavorite(user._id,thisPark.fullName)
+    }
     return (
        <>
             <div className="park-page">
-                <h1>{thisPark.fullName}</h1>
+                <h1>{thisPark.fullName  }    
+                    {toggle ? 
+                        <button onClick={handleClickRemove} className="favBtn">Remove from Favorites</button> 
+                    :
+                        <button onClick={handleClickAdd} className="favBtn">Add to Favorites</button>}
+                </h1>
                 <div className="park-page-grid">
                     <div className="park-page-about">
                         <h2>About:</h2>

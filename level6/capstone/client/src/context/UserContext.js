@@ -1,6 +1,7 @@
 import React, {useState } from "react"
 import axios from "axios"
 
+
 const UserContext = React.createContext()
 
 const userAxios = axios.create()
@@ -16,7 +17,8 @@ function UserProvider(props){
         user:JSON.parse(localStorage.getItem("user")) || {},
         token: localStorage.getItem("token") || "",
         errMsg: "",
-        trips: []
+        trips: [],
+        favorites: []
     }
 
     const [userState, setUserState] = useState(initState)
@@ -104,6 +106,27 @@ function UserProvider(props){
             })
             .catch(err => console.log(err))
     }
+    
+    //favorites
+    function addFavorite(userId, parkName){
+        userAxios.put(`/api/favorites/add/${userId}`, parkName)
+            .then(res => {
+                setUserState(prevState => ({
+                    ...prevState,
+                    favorites: res.data
+                }))
+            })
+    }
+    function removeFavorite(userId, parkName){
+        userAxios.put(`/api/favorites/remove/${userId}`, parkName)
+            .then(res => {
+                setUserState(prevState => ({
+                    ...prevState,
+                    favorites: res.data
+                }))
+            })
+    }
+    //console.log(userState)
     return(
         <UserContext.Provider 
             value={{ 
@@ -116,7 +139,9 @@ function UserProvider(props){
                 getTrip,
                 addTrip,
                 getTrips,
-                editTrip
+                editTrip,
+                addFavorite,
+                removeFavorite
             }}
         >
             {props.children}

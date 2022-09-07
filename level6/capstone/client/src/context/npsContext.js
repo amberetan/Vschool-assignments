@@ -34,8 +34,7 @@ function NpsContextProvider(props){
                 setPics(data.data[0].images)
             })
     }, [])
-    console.log(allParks)
-    console.log(pics)
+
     function changeMode(){
         setMode(prevMode => prevMode === "light" ? "dark" : "light")
     }

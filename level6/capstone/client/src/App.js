@@ -1,5 +1,5 @@
 import React, {useContext} from "react"
-import {Link, Routes, Route} from "react-router-dom"
+import {Link, Routes, Route, Navigate} from "react-router-dom"
 import Home from "./pages/Home"
 import ParksByState from "./pages/ParksByState"
 import MyTrip from "./pages/MyTrip"
@@ -28,7 +28,7 @@ function App(){
                     <h4>Favorites:</h4>
                 </div>}
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/" element={ token ? <Navigate to="/mytrip" /> : <Home />} />
                     <Route path="/parksbystate" element={<ParksByState />} />
                     <Route path="/mytrip" element={<MyTrip />} />
                     <Route path="/park/:stateId" element={<State />} />

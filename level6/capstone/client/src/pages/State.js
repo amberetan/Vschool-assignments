@@ -17,7 +17,7 @@ function State(){
     const parksList = theseParks.map(park => <li key={park.id}><Link to={`/park/${stateId}/${park.parkCode}`}>{park.fullName}</Link></li>)
     return(
         <>
-            <h1>Explore Parks in {thisState.name}:</h1>
+            <h1 className="state-page-title">Explore Parks in {thisState.name}:</h1>
             <div className="state-page">
                 <div className="stateImg">
                     
