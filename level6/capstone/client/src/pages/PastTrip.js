@@ -32,7 +32,7 @@ export default function PastTrip(props){
         <div>
             {toggle ? 
             <div className={index%2===0 ? "tripCard1" : "tripCard2"}>
-                <h3>{title} - {date}</h3>
+                <h3>{title} : {date}</h3>
                 <p>Location(s): {location}</p>
                 <p>Lodging: {lodging}</p>
                 <p>Activities: {activities}</p>

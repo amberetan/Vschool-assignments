@@ -7,6 +7,7 @@ import {NpsContext} from "./context/npsContext"
 import Park from "./pages/Park"
 import State from "./pages/State"
 import { UserContext } from "./context/UserContext"
+import Favorites from "./pages/Favorites"
 
 
 function App(){
@@ -26,6 +27,7 @@ function App(){
             <main className={`main-${mode}`}>
                 {token && <div className="favSideBar">
                     <h4>Favorites:</h4>
+                    <Favorites />
                 </div>}
                 <Routes>
                     <Route path="/" element={ token ? <Navigate to="/parksbystate" /> : <Home />} />

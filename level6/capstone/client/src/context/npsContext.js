@@ -38,6 +38,7 @@ function NpsContextProvider(props){
     function changeMode(){
         setMode(prevMode => prevMode === "light" ? "dark" : "light")
     }
+    console.log(allParks)
     return(
         <NpsContext.Provider value={{mode, allParks, pics, changeMode}}>
             {props.children}

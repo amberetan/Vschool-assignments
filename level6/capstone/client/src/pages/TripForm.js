@@ -3,7 +3,7 @@ import { UserContext }from "../context/UserContext"
 
 function TripForm(props) {
     const {trips, getTrips, addTrip, userState} = useContext(UserContext)
-    console.log(props)
+    // console.log(props)
     const initTrip = {
         title: props.title || "",
         date: props.date || "",

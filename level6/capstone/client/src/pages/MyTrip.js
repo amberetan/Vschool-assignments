@@ -6,9 +6,9 @@ import TripForm from "./TripForm"
 function MyTrip(){
     const {trips, getTrips, addTrip, user} = useContext(UserContext)
 
-    useEffect(() => {
-        getTrips(user._id)
-    }, [])
+    // useEffect(() => {
+    //     getTrips(user._id)
+    // }, [])
 
     
     return(

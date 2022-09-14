@@ -14,7 +14,7 @@ function Park(){
     function handleClickAdd(e){
         e.preventDefault()
         setToggle(prev => !prev)
-        addFavorite(user._id,thisPark.fullName)
+        addFavorite(user._id,parkId)
     }
     function handleClickRemove(e){
         e.preventDefault()

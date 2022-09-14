@@ -1,5 +1,6 @@
-import React, {useState } from "react"
+import React, {useState, useEffect } from "react"
 import axios from "axios"
+
 
 
 const UserContext = React.createContext()
@@ -22,6 +23,12 @@ function UserProvider(props){
     }
 
     const [userState, setUserState] = useState(initState)
+    console.log(userState)
+    useEffect(() => {
+        getTrips(userState.user._id)
+        getFavorites(userState.user._id)
+    },[])
+
 
     //UserAuth
     function signup(credentials){
@@ -126,26 +133,42 @@ function UserProvider(props){
     }
     
     //favorites
-    function addFavorite(userId, parkName){
-        userAxios.put(`/api/favorites/add/${userId}`, parkName)
+    function getFavorites(userId){
+        userAxios.get(`api/favorites/${userId}`)
             .then(res => {
                 console.log(res.data)
-                // setUserState(prevState => ({
-                //     ...prevState,
-                //     favorites: res.data
-                // }))
+                setUserState(prevState => ({
+                    ...prevState,
+                    favorites: res.data[0].favorites
+                    
+                }))
             })
+            .catch(err => console.log(err))
     }
-    function removeFavorite(userId, parkName){
-        userAxios.put(`/api/favorites/remove/${userId}`, parkName)
+    function addFavorite(userId, parkId){
+        userAxios.put(`/api/favorites/add/${userId}/${parkId}`)
             .then(res => {
                 setUserState(prevState => ({
                     ...prevState,
-                    favorites: res.data
+                    favorites: [...prevState.favorites, res.data]
                 }))
             })
+            getFavorites(userState.user._id)
+            .catch(err => console.log(err))
+    }
+    function removeFavorite(userId, parkId){
+        userAxios.put(`/api/favorites/remove/${userId}/${parkId}`)
+            .then(res => {
+                setUserState(prevState => ({
+                    ...prevState,
+                    favorites: prevState.favorites.filter(fav => fav._id !== parkId)
+                }))
+            })
+            .catch(err => console.log(err))
     }
     //console.log(userState)
+
+
     return(
         <UserContext.Provider 
             value={{ 
@@ -160,6 +183,7 @@ function UserProvider(props){
                 getTrips,
                 editTrip,
                 deleteTrip,
+                getFavorites,
                 addFavorite,
                 removeFavorite
             }}
