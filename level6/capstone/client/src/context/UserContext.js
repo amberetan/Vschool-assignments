@@ -24,9 +24,10 @@ function UserProvider(props){
 
     const [userState, setUserState] = useState(initState)
     console.log(userState)
+    
     useEffect(() => {
         getTrips(userState.user._id)
-        getFavorites(userState.user._id)
+        getFavorites(userState?.user._id)
     },[])
 
 
@@ -153,8 +154,8 @@ function UserProvider(props){
                     favorites: [...prevState.favorites, res.data]
                 }))
             })
-            getFavorites(userState.user._id)
             .catch(err => console.log(err))
+            // getFavorites(userState.user._id)
     }
     function removeFavorite(userId, parkId){
         userAxios.put(`/api/favorites/remove/${userId}/${parkId}`)

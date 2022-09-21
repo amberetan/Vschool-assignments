@@ -22,7 +22,7 @@ function MyTrip(){
             </div>
             <div>
                 <h1>Past Trips</h1>
-                {trips.map((trip, index) => 
+                {trips?.map((trip, index) => 
                     <PastTrip 
                         {...trip}
                         key={trip._id}

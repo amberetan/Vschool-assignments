@@ -19,12 +19,12 @@ function Park(){
     function handleClickRemove(e){
         e.preventDefault()
         setToggle(prev => !prev)
-        removeFavorite(user._id,thisPark.fullName)
+        removeFavorite(user._id,parkId)
     }
     return (
        <>
             <div className="park-page">
-                <h1>{thisPark.fullName  }    
+                <h1>{thisPark?.fullName || "loading" }    
                     {toggle ? 
                         <button onClick={handleClickRemove} className="favBtn">Remove from Favorites</button> 
                     :
@@ -33,12 +33,12 @@ function Park(){
                 <div className="park-page-grid">
                     <div className="park-page-about">
                         <h2>About:</h2>
-                        <p>{thisPark.description}</p>
+                        <p>{thisPark?.description}</p>
                     </div>
                     <div className="park-page-hours">
                         <h2>Hours:</h2>
                         <ul>
-                            {thisPark.operatingHours.map(hours =>
+                            {thisPark?.operatingHours?.map(hours =>
                                 <li key={hours.name}>
                                     <h3>{hours.name}</h3>
                                     <p>{hours.description}</p>
@@ -56,7 +56,7 @@ function Park(){
                     <div className="park-page-fees">
                         <h2>Entrance & Fees:</h2>
                         <ul>
-                            {thisPark.entranceFees.map(park => 
+                            {thisPark?.entranceFees?.map(park => 
                                 <li key={park.description + park.title}>
                                     <h3>{park.title}: {park.cost}</h3>
                                     <p>{park.description}</p>
@@ -65,11 +65,11 @@ function Park(){
                         <br/>
                         <h2>Contact:</h2>
                         <ul>
-                            {thisPark.contacts.phoneNumbers.map(phone =>
+                            {thisPark?.contacts.phoneNumbers?.map(phone =>
                                 <li key ={phone.phoneNumber}>
                                     <p>Phone: {phone.phoneNumber}    EXT: {phone.extension}</p>
                                 </li>)}
-                            {thisPark.contacts.emailAddresses.map(email =>
+                            {thisPark?.contacts.emailAddresses?.map(email =>
                                 <li key={email.emailAddress}>
                                     <p>Email: {email.emailAddress}</p>
                                 </li>)}
@@ -78,7 +78,7 @@ function Park(){
                     <div className="park-page-activities">
                         <h2>Activities & Amenities:</h2>
                         <ul>
-                            {thisPark.activities.map(activity => 
+                            {thisPark?.activities?.map(activity => 
                                 <li key={activity.id}>
                                     <p>{activity.name}</p>
                                 </li>)}
@@ -86,12 +86,12 @@ function Park(){
                     </div>
                     <div className="park-page-weather">
                         <h2>Weather:</h2>
-                        <p>{thisPark.weatherInfo}</p>
+                        <p>{thisPark?.weatherInfo}</p>
                     </div>
                 </div>
             </div>
             <ul className="backgroundImages">
-                {thisPark.images.map(image =>
+                {thisPark?.images?.map(image =>
                     <li key={image.caption}>
                         <span><img alt={image.altText} src={image.url}></img></span>
                     </li>)}
