@@ -27,7 +27,8 @@ class App extends React.Component {
         const colors = this.state.color.map((color,index) => <Color backgroundColor={color} key={index}/>)
         return(
             <main>
-                <button onClick={this.handleClick}>Random Color:</button>
+                <h1>Click here to get a random color!</h1>
+                <button onClick={this.handleClick}>Generate Random Color</button>
                 <div className="colorGrid">
                     {colors}
                 </div>
