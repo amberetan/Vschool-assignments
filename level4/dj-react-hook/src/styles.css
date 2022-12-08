@@ -1,7 +1,16 @@
+body{ 
+    background-image: url("clubBG2.jpeg");
+    background-position: center;
+    background-size: cover;
+    margin: 0px;
+    padding: 50px;
+}
 h1 {
     text-align: center;
     margin: auto;
+    padding-top: 40px;
     text-shadow: 2px 2px 5px rgb(235, 135, 143);
+    color: white;
 }
 .square {
     width: 200px;
@@ -38,4 +47,7 @@ button {
     height: 150px;
     width: 150px;
     border-radius: 50%;
+    background-image: url("record.jpeg");
+    background-position: center;
+    background-size: cover;
 }
